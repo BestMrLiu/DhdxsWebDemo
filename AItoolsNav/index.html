@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 工具导航 — 全球 AI 工具大全 | 代号大学生</title>
+<meta name="description" content="300+ 精选全球 AI 工具，15 大领域+6 大场景分类。支持推荐向导、工具组合、自由对比、API 对比、收藏管理。">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            fontFamily: { sans: ['Inter','Noto Sans SC','system-ui','sans-serif'] },
+            colors: {
+                bg:'#0C0C0C', surface:'#111111',
+                purple:{ light:'#c084fc', DEFAULT:'#a855f7', deep:'#7c3aed' },
+                cyan:{ light:'#67e8f9', DEFAULT:'#22d3ee', deep:'#0891b2' }
+            }
+        }
+    }
+}
+</script>
+<style>
+:root {
+    --bg:#181818; --surface:#1e1e1e; --glass:rgba(255,255,255,0.04); --glass-border:rgba(255,255,255,0.08);
+    --text:#f0f0f0; --text2:#9ca3af; --p:#a855f7; --pl:#c084fc; --c:#22d3ee; --cl:#67e8f9;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg) url('images/bg-aurora-flow.png') center/cover no-repeat fixed;color:var(--text);font-family:'Inter','Noto Sans SC',system-ui,sans-serif;min-height:100vh;overflow-x:hidden;}
+
+/* ===== 流动极光背景（暗化光球 + 凸显底图）===== */
+.bg-orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;will-change:transform;}
+.bg-orb-1{width:900px;height:900px;background:radial-gradient(circle,rgba(168,85,247,0.22) 0%,rgba(99,102,241,0.14) 30%,transparent 60%);top:-25%;left:-18%;filter:blur(55px);animation:flow1 22s ease-in-out infinite;opacity:0.5;}
+.bg-orb-2{width:750px;height:750px;background:radial-gradient(circle,rgba(34,211,238,0.2) 0%,rgba(16,185,129,0.09) 30%,transparent 60%);top:30%;right:-22%;filter:blur(55px);animation:flow2 26s ease-in-out infinite;opacity:0.45;}
+.bg-orb-3{width:650px;height:650px;background:radial-gradient(circle,rgba(168,85,247,0.18) 0%,rgba(236,72,153,0.09) 30%,transparent 60%);bottom:-18%;left:18%;filter:blur(55px);animation:flow3 30s ease-in-out infinite;opacity:0.45;}
+.bg-orb-4{width:550px;height:550px;background:radial-gradient(circle,rgba(99,102,241,0.16) 0%,rgba(34,211,238,0.09) 30%,transparent 60%);top:50%;left:48%;filter:blur(55px);animation:flow4 24s ease-in-out infinite;opacity:0.4;}
+.bg-orb-5{width:400px;height:400px;background:radial-gradient(circle,rgba(236,72,153,0.22) 0%,rgba(168,85,247,0.07) 30%,transparent 60%);top:8%;left:55%;filter:blur(45px);animation:flow5 20s ease-in-out infinite;opacity:0.4;}
+.bg-orb-6{width:500px;height:500px;background:radial-gradient(circle,rgba(34,211,238,0.2) 0%,rgba(99,102,241,0.12) 30%,transparent 60%);bottom:20%;right:8%;filter:blur(45px);animation:flow6 28s ease-in-out infinite;opacity:0.38;}
+.bg-orb-7{width:250px;height:250px;background:radial-gradient(circle,rgba(168,85,247,0.22) 0%,rgba(34,211,238,0.1) 30%,transparent 60%);top:60%;left:75%;filter:blur(35px);animation:flow7 18s ease-in-out infinite;opacity:0.38;}
+.bg-orb-8{width:180px;height:180px;background:radial-gradient(circle,rgba(34,211,238,0.24) 0%,rgba(168,85,247,0.07) 30%,transparent 60%);top:15%;left:30%;filter:blur(30px);animation:flow8 15s ease-in-out infinite;opacity:0.35;}
+
+@keyframes flow1{0%,100%{transform:translate(0,0) scale(1) rotate(0deg)}20%{transform:translate(18vw,10vh) scale(1.15) rotate(5deg)}40%{transform:translate(22vw,-8vh) scale(0.88) rotate(-3deg)}60%{transform:translate(-10vw,18vh) scale(1.12) rotate(2deg)}80%{transform:translate(-16vw,-10vh) scale(0.95) rotate(-2deg)}}
+@keyframes flow2{0%,100%{transform:translate(0,0) scale(1) rotate(0deg)}25%{transform:translate(-18vw,12vh) scale(1.12) rotate(-5deg)}50%{transform:translate(-12vw,-20vh) scale(0.85) rotate(3deg)}75%{transform:translate(16vw,-8vh) scale(1.08) rotate(-2deg)}}
+@keyframes flow3{0%,100%{transform:translate(0,0) scale(1) rotate(0deg)}20%{transform:translate(-14vw,-16vh) scale(1.12) rotate(3deg)}50%{transform:translate(18vw,14vh) scale(0.9) rotate(-3deg)}80%{transform:translate(8vw,-18vh) scale(1.06) rotate(2deg)}}
+@keyframes flow4{0%,100%{transform:translate(0,0) scale(0.8);opacity:0.4}25%{transform:translate(12vw,-10vh) scale(1.25);opacity:0.7}50%{transform:translate(-16vw,16vh) scale(0.75);opacity:0.3}75%{transform:translate(8vw,-8vh) scale(1.15);opacity:0.6}}
+@keyframes flow7{0%,100%{transform:translate(0,0) scale(0.9) rotate(0deg)}33%{transform:translate(8vw,-6vh) scale(1.3)}66%{transform:translate(-6vw,10vh) scale(0.75)}}
+@keyframes flow8{0%,100%{transform:translate(0,0) scale(0.8) rotate(0deg)}33%{transform:translate(-10vw,8vh) scale(1.4)}66%{transform:translate(8vw,-12vh) scale(0.65)}}
+@keyframes flow5{0%,100%{transform:translate(0,0) scale(1) rotate(0deg)}33%{transform:translate(-10vw,14vh) scale(1.3)}66%{transform:translate(12vw,-10vh) scale(0.8)}}
+@keyframes flow6{0%,100%{transform:translate(0,0) scale(0.85) rotate(0deg);opacity:0.28}40%{transform:translate(-14vw,-8vh) scale(1.25);opacity:0.55}75%{transform:translate(10vw,14vh) scale(0.8);opacity:0.38}}
+
+/* ===== 导航栏 ===== */
+.navbar{background:rgba(255,255,255,0.04);backdrop-filter:blur(24px) saturate(1.2);-webkit-backdrop-filter:blur(24px) saturate(1.2);border-bottom:1px solid rgba(255,255,255,0.1);box-shadow:0 1px 0 rgba(255,255,255,0.04) inset;}
+
+/* ===== 液态玻璃 1 — 浅透光 ===== */
+.glass{background:rgba(255,255,255,0.03);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,0.1);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1);border-radius:16px;}
+.glass:hover,.gh:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.2);box-shadow:inset 0 1px 0 rgba(255,255,255,0.15);}
+/* ===== 液态玻璃 2 — 加厚重磨砂 ===== */
+.glass-strong{background:rgba(255,255,255,0.04);backdrop-filter:blur(50px);-webkit-backdrop-filter:blur(50px);border:1px solid rgba(255,255,255,0.1);box-shadow:0 8px 32px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.07);border-radius:20px;}
+.glass-strong:hover{background:rgba(255,255,255,0.07);box-shadow:0 8px 32px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.12),0 0 30px rgba(255,255,255,0.04);}
+/* ===== 液态玻璃 3 — 超透轻量 ===== */
+.glass-lt{background:rgba(255,255,255,0.02);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);border:1px solid rgba(255,255,255,0.05);border-radius:12px;}
+
+/* ===== 霓虹文字 ===== */
+.tn{background:linear-gradient(135deg,#a855f7 0%,#6366f1 30%,#22d3ee 70%,#34d399 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+/* ===== 灰白渐变文字 ===== */
+.tw{background:linear-gradient(180deg,#d1d5db 0%,#ffffff 50%,#9ca3af 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* ===== 工具卡片 ===== */
+.tool-card{transition:all 0.35s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;animation:cardIn 0.5s ease forwards;opacity:0;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:none;}
+/* 渐变描边：上下白、左右透明 — mask-composite（高纯度白色）*/
+.tool-card::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(180deg,rgba(255,255,255,0.6) 0%,transparent 35%,transparent 65%,rgba(255,255,255,0.45) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;transition:all 0.35s ease;z-index:2;}
+/* hover 流动边框 */
+.tool-card::after{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(255,255,255,0.75),rgba(255,255,255,0.15),rgba(255,255,255,0.75),rgba(255,255,255,0.15));background-size:300% 300%;-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:0;transition:opacity 0.35s ease;z-index:3;}
+.tool-card:hover{transform:translateY(-6px);background:rgba(255,255,255,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.15),0 0 40px rgba(255,255,255,0.04),0 20px 60px rgba(0,0,0,0.3);}
+.tool-card:hover::before{background:linear-gradient(180deg,rgba(255,255,255,0.75) 0%,transparent 35%,transparent 65%,rgba(255,255,255,0.6) 100%);}
+.tool-card:hover::after{opacity:1;animation:borderFlow 2.5s linear infinite;}
+@keyframes cardIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:0.15}50%{transform:scale(1.3);opacity:0.25}}
+@keyframes borderFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.tool-icon{width:40px;height:40px;border-radius:13px;background:rgba(255,255,255,0.03);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;border:1px solid rgba(255,255,255,0.06);box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);}
+.tool-icon img{width:26px;height:26px;object-fit:contain;}
+.tool-icon-fb{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,rgba(168,85,247,0.2),rgba(34,211,238,0.1));display:none;align-items:center;justify-content:center;color:var(--pl);font-weight:700;font-size:17px;flex-shrink:0;}
+
+/* ===== 分类标题 ===== */
+.cat-header{position:sticky;top:76px;z-index:20;background:rgba(12,12,12,0.3);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);padding:16px 0;margin-bottom:4px;}
+
+/* ===== 收藏 ===== */
+.fav-btn{transition:all 0.2s ease;opacity:0.35;}
+.tool-card:hover .fav-btn,.fav-btn.faved{opacity:1;}
+.fav-btn.faved{color:#f59e0b;}
+
+/* ===== 分类标签 ===== */
+.cat-tag{transition:all 0.25s ease;cursor:pointer;user-select:none;}
+.cat-tag.active{background:rgba(168,85,247,0.18);border-color:rgba(168,85,247,0.5)!important;color:#c084fc;box-shadow:0 0 24px rgba(168,85,247,0.15);}
+
+/* ===== 搜索 ===== */
+.sbox{position:relative;overflow:hidden;}
+.sbox::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(180deg,rgba(255,255,255,0.55) 0%,transparent 30%,transparent 70%,rgba(255,255,255,0.4) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;transition:all 0.3s ease;}
+.sbox:focus-within{border-color:rgba(168,85,247,0.5)!important;box-shadow:0 0 0 4px rgba(168,85,247,0.08),0 0 40px rgba(168,85,247,0.06);}
+.sbox:focus-within::before{background:linear-gradient(180deg,rgba(168,85,247,0.6) 0%,transparent 30%,transparent 70%,rgba(168,85,247,0.5) 100%);}
+
+/* ===== 向导按钮 ===== */
+.wb{transition:all 0.25s ease;cursor:pointer;}
+.wb:hover{background:rgba(255,255,255,0.08);}
+.wb.sel{background:rgba(168,85,247,0.2);border-color:rgba(168,85,247,0.5)!important;color:#c084fc;box-shadow:0 0 16px rgba(168,85,247,0.15);}
+
+/* ===== 工作流卡 ===== */
+.wf-card{transition:all 0.35s cubic-bezier(0.4,0,0.2,1);cursor:default;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);position:relative;overflow:hidden;}
+.wf-card::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(180deg,rgba(255,255,255,0.5) 0%,transparent 35%,transparent 65%,rgba(255,255,255,0.38) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;transition:all 0.35s ease;}
+.wf-card:hover{transform:translateY(-4px);background:rgba(255,255,255,0.06);box-shadow:inset 0 1px 0 rgba(255,255,255,0.12);}
+.wf-card:hover::before{background:linear-gradient(180deg,rgba(255,255,255,0.65) 0%,transparent 35%,transparent 65%,rgba(255,255,255,0.52) 100%);}
+.wf-card .wf-arrow{transition:transform 0.3s ease;}
+.wf-card:hover .wf-arrow{transform:translateX(4px);}
+
+/* ===== 对比表 ===== */
+.detail-table th{font-size:0.95rem;font-weight:600;padding:14px 24px;}
+.detail-table td{padding:12px 20px;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.925rem;}
+.detail-table td:first-child{color:var(--text2);width:130px;font-size:0.85rem;}
+.hl{color:var(--pl);font-weight:600;}.hc{color:var(--cl);font-weight:600;}
+
+/* ===== 选择器 ===== */
+.cs{-webkit-appearance:none;appearance:none;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:var(--text);border-radius:12px;padding:12px 40px 12px 16px;font-size:0.95rem;cursor:pointer;transition:all 0.25s ease;width:100%;}
+.cs:focus{outline:none;border-color:rgba(168,85,247,0.5);box-shadow:0 0 0 3px rgba(168,85,247,0.1);}
+.cs option,.cs optgroup{background:#1a1a1a;color:#e0e0e0;}
+
+/* 滚动条 */
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:3px}
+
+/* 响应式 */
+@media(max-width:768px){
+  .tool-grid{grid-template-columns:1fr!important}
+  .hero-lg{display:none}
+  .hero-grid{grid-template-columns:1fr!important}
+  .compare-duo{grid-template-columns:1fr!important}
+  .nav-links{display:none}
+  nav .max-w-7xl{flex-wrap:wrap;gap:8px}
+  h1{font-size:2.25rem!important}
+  .wizard-btns{flex-wrap:wrap;gap:6px}
+  .workflow-grid{grid-template-columns:1fr!important}
+  .detail-table th,.detail-table td{padding:8px 10px!important;font-size:0.8rem!important}
+  .detail-table td:first-child{width:90px!important}
+}
+@media(min-width:769px) and (max-width:1199px){
+  .tool-grid{grid-template-columns:repeat(2,1fr)!important}
+  .workflow-grid{grid-template-columns:repeat(2,1fr)!important}
+}
+@media(min-width:1200px){
+  .tool-grid{grid-template-columns:repeat(3,1fr)!important}
+  .workflow-grid{grid-template-columns:repeat(3,1fr)!important}
+}
+
+/* toast */
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,0.1);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:10px 28px;border-radius:100px;font-size:0.85rem;z-index:999;animation:ti 0.3s ease,to 0.3s ease 2s forwards;}
+@keyframes ti{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@keyframes to{from{opacity:1}to{opacity:0}}
+
+/* ===== 飘浮粒子 ===== */
+.particle{position:fixed;border-radius:50%;pointer-events:none;z-index:0;bottom:-20px;animation:floatUp linear infinite;}
+.particle.p1{animation-duration:13s;}
+.particle.p2{animation-duration:17s;}
+.particle.p3{animation-duration:21s;}
+.particle.p4{animation-duration:14s;}
+.particle.p5{animation-duration:19s;}
+.particle.p6{animation-duration:22s;}
+.particle.p7{animation-duration:15s;}
+.particle.p8{animation-duration:18s;}
+.particle.p9{animation-duration:20s;}
+.particle.p10{animation-duration:16s;}
+.particle.p11{animation-duration:23s;}
+.particle.p12{animation-duration:12s;}
+.particle.p13{animation-duration:25s;}
+.particle.p14{animation-duration:14s;}
+.particle.p15{animation-duration:19s;}
+.particle.p16{animation-duration:21s;}
+.particle.p17{animation-duration:16s;}
+.particle.p18{animation-duration:24s;}
+.particle.p19{animation-duration:13s;}
+.particle.p20{animation-duration:20s;}
+@keyframes floatUp{0%{transform:translateY(0) scale(0);opacity:0}5%{opacity:0.8}15%{opacity:1}85%{opacity:1}95%{opacity:0}100%{transform:translateY(-105vh) scale(1.2);opacity:0}}
+
+/* ===== 暗色遮罩 ===== */
+.bg-dim{position:fixed;inset:0;z-index:-1;background:rgba(0,0,0,0.25);pointer-events:none;}
+
+/* ========== 灵动岛侧边栏（滑出式）========== */
+/* 遮罩层 */
+.ld-mask{position:fixed;inset:0;z-index:48;background:rgba(0,0,0,0.45);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity 0.35s ease;}
+.ld-mask.open{opacity:1;pointer-events:auto;}
+
+/* 抽屉面板 - 与工具卡片一致的玻璃质感 */
+.ld-panel{position:fixed;left:0;top:0;bottom:0;width:280px;z-index:50;transform:translateX(-100%);transition:transform 0.38s cubic-bezier(0.4,0,0.2,1);background:rgba(255,255,255,0.025);backdrop-filter:blur(32px) saturate(1.3);-webkit-backdrop-filter:blur(32px) saturate(1.3);border-radius:0 20px 20px 0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.08),4px 0 24px rgba(0,0,0,0.25);display:flex;flex-direction:column;}
+.ld-panel::before{content:'';position:absolute;inset:0;border-radius:0 20px 20px 0;padding:1px;background:linear-gradient(180deg,rgba(255,255,255,0.6) 0%,transparent 35%,transparent 65%,rgba(255,255,255,0.45) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:2;}
+.ld-panel.open{transform:translateX(0);}
+.ld-panel::-webkit-scrollbar{width:3px;}
+.ld-panel::-webkit-scrollbar-track{background:transparent;}
+.ld-panel::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:2px;}
+
+/* 面板顶部 */
+.ld-top{padding:22px 16px 8px;flex-shrink:0;border-bottom:1px solid rgba(255,255,255,0.04);}
+.ld-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+.ld-header-title{font-size:15px;font-weight:700;color:#fff;display:flex;align-items:center;gap:9px;letter-spacing:0.5px;}
+.ld-header-dot{width:7px;height:7px;border-radius:50%;background:#a855f7;box-shadow:0 0 10px rgba(168,85,247,0.6);animation:ldPulse 2s ease-in-out infinite;}
+@keyframes ldPulse{0%,100%{box-shadow:0 0 10px rgba(168,85,247,0.6)}50%{box-shadow:0 0 20px rgba(168,85,247,0.9)}}
+.ld-subtitle{font-size:11px;color:#6b7280;margin-bottom:4px;padding-left:2px;}
+.ld-close-btn{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);color:#9ca3af;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.ld-close-btn:hover{background:rgba(168,85,247,0.15);border-color:rgba(168,85,247,0.3);color:#c084fc;}
+
+/* 面板可滚动区 */
+.ld-scroll{flex:1;overflow-y:auto;overflow-x:hidden;padding:6px 12px 12px;}
+
+/* 分区折叠 */
+.ld-sec{margin-bottom:4px;}
+.ld-sec-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:none;border:none;border-radius:10px;color:#9ca3af;font-size:12.5px;font-weight:600;cursor:pointer;transition:all 0.25s;text-align:left;gap:8px;}
+.ld-sec-toggle:hover{background:rgba(255,255,255,0.04);color:#d1d5db;}
+.ld-sec-icon{width:22px;height:22px;border-radius:6px;background:rgba(255,255,255,0.04);display:inline-flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;}
+.ld-sec.open .ld-sec-icon{background:rgba(168,85,247,0.12);color:#c084fc;}
+.ld-sec-toggle .ld-arrow{font-size:9px;transition:transform 0.3s ease;opacity:0.4;margin-left:auto;}
+.ld-sec.open .ld-sec-toggle .ld-arrow{transform:rotate(180deg);}
+.ld-sec-body{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.35s ease;padding:0 6px;}
+.ld-sec.open .ld-sec-body{max-height:600px;padding:6px 6px 8px;}
+
+/* 标签按钮 */
+.ld-tag{padding:6px 12px;border-radius:8px;font-size:11.5px;color:#9ca3af;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:5px;margin:2px;white-space:nowrap;}
+.ld-tag i{font-size:10px;opacity:0.7;}
+.ld-tag:hover{background:rgba(255,255,255,0.06);color:#e0e0e0;border-color:rgba(255,255,255,0.15);}
+.ld-tag.active{background:rgba(168,85,247,0.16);border-color:rgba(168,85,247,0.4);color:#c084fc;box-shadow:0 0 12px rgba(168,85,247,0.1);}
+.ld-tag.active i{opacity:1;}
+.ld-tag.fav-tag{background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.25);color:#fbbf24;}
+.ld-tag.fav-tag:hover{background:rgba(245,158,11,0.18);}
+
+/* 公司下拉 */
+.ld-select{width:100%;padding:8px 12px;border-radius:9px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);color:#9ca3af;font-size:12px;cursor:pointer;appearance:none;-webkit-appearance:none;transition:all 0.2s;}
+.ld-select:focus{outline:none;border-color:rgba(168,85,247,0.35);color:#e0e0e0;}
+.ld-select option{background:#1a1a1a;color:#e0e0e0;}
+
+/* 底部操作区 */
+.ld-bottom{padding:10px 12px 16px;border-top:1px solid rgba(255,255,255,0.05);flex-shrink:0;}
+.ld-reset{width:100%;padding:10px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);color:#9ca3af;font-size:12.5px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:7px;font-weight:500;}
+.ld-reset:hover{background:rgba(168,85,247,0.1);border-color:rgba(168,85,247,0.3);color:#c084fc;}
+.ld-reset-icon{font-size:13px;transition:transform 0.4s ease;}
+.ld-reset:hover .ld-reset-icon{transform:rotate(180deg);}
+
+/* 触发按钮 — 永远悬浮在左边缘，玻璃质感 */
+.ld-trigger{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:47;width:38px;height:72px;background:rgba(255,255,255,0.025);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);border-radius:0 14px 14px 0;color:#9ca3af;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.3s ease;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06),2px 0 16px rgba(0,0,0,0.2);border:none;outline:none;}
+.ld-trigger::before{content:'';position:absolute;inset:0;border-radius:0 14px 14px 0;padding:1px;background:linear-gradient(180deg,rgba(255,255,255,0.55) 0%,transparent 35%,transparent 65%,rgba(255,255,255,0.4) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;transition:all 0.3s ease;}
+.ld-trigger:hover{width:44px;color:#c084fc;box-shadow:inset 0 1px 0 rgba(255,255,255,0.1),2px 0 20px rgba(168,85,247,0.1);}
+.ld-trigger:hover::before{background:linear-gradient(180deg,rgba(192,132,252,0.5) 0%,transparent 35%,transparent 65%,rgba(192,132,252,0.4) 100%);}
+.ld-trigger.hidden{opacity:0;pointer-events:none;}
+.ld-panel.open~.ld-trigger{left:280px;}
+
+/* ===== 精选场景卡片 ===== */
+.scene-card{position:relative;overflow:hidden;border-color:transparent;}
+.scene-card::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(180deg,rgba(255,255,255,0.5) 0%,transparent 35%,transparent 65%,rgba(255,255,255,0.38) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;transition:all 0.3s ease;}
+.scene-card:hover::before{background:linear-gradient(180deg,rgba(168,85,247,0.5) 0%,transparent 35%,transparent 65%,rgba(168,85,247,0.35) 100%);}
+
+/* ===== 热门卡片 ===== */
+#trendingCard::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(180deg,rgba(255,255,255,0.55) 0%,transparent 35%,transparent 65%,rgba(255,255,255,0.4) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;transition:all 0.3s ease;}
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="data/company.js"></script>
+<script src="data/workflows.js"></script>
+<script src="data/tools.js"></script>
+</head>
+<body>
+<!-- 暗色遮罩 -->
+<div class="bg-dim"></div>
+
+<!-- 流动极光：6 球体 -->
+<div class="bg-orb bg-orb-1"></div>
+<div class="bg-orb bg-orb-2"></div>
+<div class="bg-orb bg-orb-3"></div>
+<div class="bg-orb bg-orb-4"></div>
+<div class="bg-orb bg-orb-5"></div>
+<div class="bg-orb bg-orb-6"></div>
+<div class="bg-orb bg-orb-7"></div>
+<div class="bg-orb bg-orb-8"></div>
+
+<!-- 飘浮小粒子 20 个（暗化）-->
+<div class="particle p1" style="left:3%;width:3px;height:3px;background:rgba(168,85,247,0.4);box-shadow:0 0 6px rgba(168,85,247,0.2);animation-delay:0s;"></div>
+<div class="particle p2" style="left:8%;width:5px;height:5px;background:rgba(34,211,238,0.4);box-shadow:0 0 9px rgba(34,211,238,0.2);animation-delay:1s;"></div>
+<div class="particle p3" style="left:13%;width:2px;height:2px;background:rgba(168,85,247,0.3);box-shadow:0 0 4px rgba(168,85,247,0.15);animation-delay:2s;"></div>
+<div class="particle p4" style="left:18%;width:7px;height:7px;background:rgba(99,102,241,0.35);box-shadow:0 0 12px rgba(99,102,241,0.18);animation-delay:0.5s;"></div>
+<div class="particle p5" style="left:23%;width:4px;height:4px;background:rgba(34,211,238,0.45);box-shadow:0 0 8px rgba(34,211,238,0.25);animation-delay:3s;"></div>
+<div class="particle p6" style="left:28%;width:6px;height:6px;background:rgba(236,72,153,0.3);box-shadow:0 0 10px rgba(236,72,153,0.15);animation-delay:1.5s;"></div>
+<div class="particle p7" style="left:33%;width:3px;height:3px;background:rgba(168,85,247,0.4);box-shadow:0 0 6px rgba(168,85,247,0.2);animation-delay:4s;"></div>
+<div class="particle p8" style="left:38%;width:8px;height:8px;background:rgba(34,211,238,0.3);box-shadow:0 0 14px rgba(34,211,238,0.15);animation-delay:2.5s;"></div>
+<div class="particle p9" style="left:43%;width:4px;height:4px;background:rgba(99,102,241,0.4);box-shadow:0 0 8px rgba(99,102,241,0.2);animation-delay:5s;"></div>
+<div class="particle p10" style="left:48%;width:2px;height:2px;background:rgba(168,85,247,0.35);box-shadow:0 0 5px rgba(168,85,247,0.18);animation-delay:3.5s;"></div>
+<div class="particle p11" style="left:53%;width:5px;height:5px;background:rgba(34,211,238,0.4);box-shadow:0 0 10px rgba(34,211,238,0.2);animation-delay:0.8s;"></div>
+<div class="particle p12" style="left:58%;width:3px;height:3px;background:rgba(236,72,153,0.35);box-shadow:0 0 6px rgba(236,72,153,0.18);animation-delay:6s;"></div>
+<div class="particle p13" style="left:63%;width:6px;height:6px;background:rgba(168,85,247,0.3);box-shadow:0 0 11px rgba(168,85,247,0.18);animation-delay:1.8s;"></div>
+<div class="particle p14" style="left:68%;width:4px;height:4px;background:rgba(34,211,238,0.45);box-shadow:0 0 7px rgba(34,211,238,0.25);animation-delay:4.5s;"></div>
+<div class="particle p15" style="left:73%;width:7px;height:7px;background:rgba(99,102,241,0.3);box-shadow:0 0 13px rgba(99,102,241,0.15);animation-delay:2.2s;"></div>
+<div class="particle p16" style="left:78%;width:2px;height:2px;background:rgba(168,85,247,0.4);box-shadow:0 0 4px rgba(168,85,247,0.2);animation-delay:5.5s;"></div>
+<div class="particle p17" style="left:83%;width:5px;height:5px;background:rgba(34,211,238,0.35);box-shadow:0 0 9px rgba(34,211,238,0.18);animation-delay:3.8s;"></div>
+<div class="particle p18" style="left:88%;width:3px;height:3px;background:rgba(236,72,153,0.3);box-shadow:0 0 6px rgba(236,72,153,0.15);animation-delay:1.2s;"></div>
+<div class="particle p19" style="left:93%;width:6px;height:6px;background:rgba(168,85,247,0.35);box-shadow:0 0 10px rgba(168,85,247,0.18);animation-delay:4.2s;"></div>
+<div class="particle p20" style="left:97%;width:4px;height:4px;background:rgba(34,211,238,0.4);box-shadow:0 0 8px rgba(34,211,238,0.2);animation-delay:2.8s;"></div>
+
+<!-- ===== 灵动岛遮罩 ===== -->
+<div class="ld-mask" id="ldMask" onclick="closeSidebar()"></div>
+
+<!-- ===== 灵动岛侧边栏（滑出式抽屉）===== -->
+<aside class="ld-panel" id="ldPanel">
+    <!-- 顶部 -->
+    <div class="ld-top">
+        <div class="ld-header">
+            <div class="ld-header-title tw"><span class="ld-header-dot"></span>筛选导航</div>
+            <button class="ld-close-btn" onclick="closeSidebar()" title="收起面板"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <p class="ld-subtitle">按分类、身份、场景精准定位工具</p>
+    </div>
+
+    <!-- 可滚动区 -->
+    <div class="ld-scroll">
+        <!-- 分类 -->
+        <div class="ld-sec open" id="ldSecCat">
+            <button class="ld-sec-toggle" onclick="this.parentElement.classList.toggle('open')">
+                <span class="ld-sec-icon tw"><i class="fa-solid fa-layer-group"></i></span><span class="tw">工具分类</span> <i class="fa-solid fa-chevron-down ld-arrow"></i>
+            </button>
+            <div class="ld-sec-body" id="ldCatTags">
+                <button class="ld-tag active" data-cat="all">全部</button>
+            </div>
+        </div>
+
+        <!-- 身份 -->
+        <div class="ld-sec" id="ldSecIdentity">
+            <button class="ld-sec-toggle" onclick="this.parentElement.classList.toggle('open')">
+                <span class="ld-sec-icon tw"><i class="fa-solid fa-user-group"></i></span><span class="tw">按身份</span> <i class="fa-solid fa-chevron-down ld-arrow"></i>
+            </button>
+            <div class="ld-sec-body" id="ldIdentityTags">
+                <button class="ld-tag active" data-identity="all">全部</button>
+                <button class="ld-tag" data-identity="student"><i class="fa-solid fa-graduation-cap"></i> 大学生</button>
+                <button class="ld-tag" data-identity="school"><i class="fa-solid fa-school"></i> 中学生</button>
+                <button class="ld-tag" data-identity="career"><i class="fa-solid fa-briefcase"></i> 职场人</button>
+                <button class="ld-tag" data-identity="creator"><i class="fa-solid fa-palette"></i> 创作者</button>
+                <button class="ld-tag" data-identity="dev"><i class="fa-solid fa-code"></i> 开发者</button>
+                <button class="ld-tag" data-identity="research"><i class="fa-solid fa-flask"></i> 研究者</button>
+            </div>
+        </div>
+
+        <!-- 垂直场景 -->
+        <div class="ld-sec" id="ldSecScene">
+            <button class="ld-sec-toggle" onclick="this.parentElement.classList.toggle('open')">
+                <span class="ld-sec-icon tw"><i class="fa-solid fa-bullseye"></i></span><span class="tw">垂直场景</span> <i class="fa-solid fa-chevron-down ld-arrow"></i>
+            </button>
+            <div class="ld-sec-body" id="ldSceneTags">
+                <button class="ld-tag" data-scene="paper"><i class="fa-solid fa-file-lines"></i> 论文写作</button>
+                <button class="ld-tag" data-scene="check"><i class="fa-solid fa-magnifying-glass"></i> 查重降重</button>
+                <button class="ld-tag" data-scene="ppt"><i class="fa-solid fa-file-powerpoint"></i> PPT制作</button>
+                <button class="ld-tag" data-scene="lang"><i class="fa-solid fa-language"></i> 语言学习</button>
+                <button class="ld-tag" data-scene="code_learn"><i class="fa-solid fa-laptop-code"></i> 编程学习</button>
+                <button class="ld-tag" data-scene="exam"><i class="fa-solid fa-book-open"></i> 考试备考</button>
+                <button class="ld-tag" data-scene="job"><i class="fa-solid fa-file-signature"></i> 求职面试</button>
+                <button class="ld-tag" data-scene="reading"><i class="fa-solid fa-book"></i> 文献阅读</button>
+                <button class="ld-tag" data-scene="media"><i class="fa-solid fa-video"></i> 自媒体创作</button>
+                <button class="ld-tag" data-scene="ecom"><i class="fa-solid fa-cart-shopping"></i> 电商运营</button>
+                <button class="ld-tag" data-scene="startup"><i class="fa-solid fa-rocket"></i> 创业工具</button>
+                <button class="ld-tag" data-scene="fin"><i class="fa-solid fa-chart-line"></i> 理财投资</button>
+            </div>
+        </div>
+
+        <!-- 视图 -->
+        <div class="ld-sec" id="ldSecView">
+            <button class="ld-sec-toggle" onclick="this.parentElement.classList.toggle('open')">
+                <span class="ld-sec-icon tw"><i class="fa-solid fa-eye"></i></span><span class="tw">视图筛选</span> <i class="fa-solid fa-chevron-down ld-arrow"></i>
+            </button>
+            <div class="ld-sec-body" id="ldViewTags">
+                <button class="ld-tag active" data-filter="all">全部</button>
+                <button class="ld-tag" data-filter="hot"><i class="fa-solid fa-fire"></i> 热门</button>
+                <button class="ld-tag" data-filter="new"><i class="fa-solid fa-sparkles"></i> 新上线</button>
+                <button class="ld-tag fav-tag" data-filter="favs" id="ldFavTab"><i class="fa-solid fa-star"></i> 收藏夹</button>
+            </div>
+        </div>
+
+        <!-- 公司 -->
+        <div class="ld-sec" id="ldSecCompany">
+            <button class="ld-sec-toggle" onclick="this.parentElement.classList.toggle('open')">
+                <span class="ld-sec-icon tw"><i class="fa-solid fa-building"></i></span><span class="tw">按开发商</span> <i class="fa-solid fa-chevron-down ld-arrow"></i>
+            </button>
+            <div class="ld-sec-body">
+                <select id="ldCompanyFilter" class="ld-select">
+                    <option value="all">全部公司</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部：重置按钮 -->
+    <div class="ld-bottom">
+        <button class="ld-reset" onclick="resetAllFilters()" title="重置所有筛选条件">
+            <i class="fa-solid fa-rotate-right ld-reset-icon"></i> 重置全部筛选
+        </button>
+    </div>
+</aside>
+
+<!-- 触发按钮 — 悬浮在左边缘 -->
+<button class="ld-trigger" id="ldTrigger" onclick="openSidebar()" title="展开筛选面板"><i class="fa-solid fa-sliders"></i></button>
+
+<div style="position:relative;z-index:1;">
+
+<!-- ===== 导航栏 v3.1 ===== -->
+<nav class="navbar sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-purple-500 to-cyan-400 flex items-center justify-center text-white font-bold text-base shadow-lg shadow-purple-500/20">AI</div>
+            <span class="font-bold text-xl tracking-tight tw">AI 工具导航</span>
+        </div>
+        <div class="flex items-center gap-6 text-sm text-gray-400 nav-links">
+            <a href="#scenes" class="hover:text-white transition-colors">推荐</a>
+            <a href="#tools" class="hover:text-white transition-colors">工具库</a>
+            <a href="#workflows" class="hover:text-white transition-colors">组合</a>
+            <a href="#compare" class="hover:text-white transition-colors">对比</a>
+            <span class="text-gray-700">|</span>
+            <span class="text-xs text-gray-500 hidden sm:inline">500+ 款 · 上次更新：2026年6月5日</span>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== Hero v3.1：非对称布局 ===== -->
+<header class="relative px-6 md:px-8 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start hero-grid">
+            <!-- 左：文字区 -->
+            <div class="lg:col-span-3 pt-6">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs text-gray-400 mb-8">
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>2026年6月 · 每周自动刷新数据
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.08] mb-6 tracking-tight tw">
+                    别找了。<br>好用的 <span class="tn">AI 都在这里</span>
+                </h1>
+                <p class="text-gray-400 text-lg mb-8 max-w-lg leading-relaxed">
+                    500+ 款全球 AI 工具，15 大领域+6 大身份+5 大场景。推荐向导帮你 30 秒找到最合适的工具。
+                </p>
+                <div class="sbox relative max-w-lg mb-4 glass rounded-2xl transition-all">
+                    <input type="text" id="searchInput" placeholder="搜索名称或功能..."
+                        class="w-full px-5 py-4 pl-12 pr-16 bg-transparent text-white placeholder-gray-500 text-base border-none outline-none rounded-2xl">
+                    <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    <span id="resultHint" class="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-gray-600 hidden"></span>
+                </div>
+                <p class="text-xs text-gray-600 mt-3">点击左侧边缘 <span class="text-purple-light">筛选</span> 按钮呼出筛选面板 →</p>
+            </div>
+
+            <!-- 右：装饰可视化区 -->
+            <div class="lg:col-span-2 hidden lg:flex items-start justify-center relative pt-4 hero-lg">
+                <div class="relative">
+                    <div class="w-64 h-64 rounded-full absolute -top-8 -right-8 opacity-20" style="background:radial-gradient(circle,#a855f7,transparent 70%);filter:blur(40px);animation:pulse 4s ease-in-out infinite;"></div>
+                    <div id="trendingCard" class="glass rounded-3xl p-6 relative z-10 overflow-hidden" style="min-width:280px;">
+                        <p class="text-xs text-gray-500 mb-3"><i class="fa-solid fa-fire" style="color:#f97316"></i> 本周热门</p>
+                        <div class="space-y-3" id="trendingPreview">
+                            <!-- JS 动态填充 -->
+                        </div>
+                        <a href="#tools" class="block mt-4 text-xs text-purple-light hover:text-purple-400 transition-colors">浏览全部 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ===== 精选场景 ===== -->
+<section id="scenes" class="px-6 pb-10">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-xl font-bold mb-5 flex items-center gap-2 tw">
+            <span class="w-1.5 h-6 rounded-full bg-gradient-to-b from-purple-400 to-cyan-400"></span>精选场景
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+            <!-- 办公提效 -->
+            <div class="scene-card glass rounded-2xl p-5 cursor-pointer transition-all hover:bg-white/[0.08] hover:border-white/20 group" onclick="verticalFilter('office')">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-base" style="background:rgba(34,211,238,0.15);color:#67e8f9"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="tw font-semibold text-sm mb-1 group-hover:opacity-100">AI 办公提效</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">自动化流程 · PPT/文档 · 会议记录</p>
+            </div>
+            <!-- 内容创作 -->
+            <div class="scene-card glass rounded-2xl p-5 cursor-pointer transition-all hover:bg-white/[0.08] hover:border-white/20 group" onclick="verticalFilter('create')">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-base" style="background:rgba(168,85,247,0.15);color:#c084fc"><i class="fa-solid fa-clapperboard"></i></div>
+                <h3 class="tw font-semibold text-sm mb-1 group-hover:opacity-100">内容创作</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">写作 · 视频 · 音频 · 社媒</p>
+            </div>
+            <!-- 开发编程 -->
+            <div class="scene-card glass rounded-2xl p-5 cursor-pointer transition-all hover:bg-white/[0.08] hover:border-white/20 group" onclick="verticalFilter('code')">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-base" style="background:rgba(99,102,241,0.15);color:#818cf8"><i class="fa-solid fa-code"></i></div>
+                <h3 class="tw font-semibold text-sm mb-1 group-hover:opacity-100">开发编程</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">代码 · API · Agent · 部署</p>
+            </div>
+            <!-- 学习教育 -->
+            <div class="scene-card glass rounded-2xl p-5 cursor-pointer transition-all hover:bg-white/[0.08] hover:border-white/20 group" onclick="verticalFilter('learn')">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-base" style="background:rgba(16,185,129,0.15);color:#34d399"><i class="fa-solid fa-book-open"></i></div>
+                <h3 class="tw font-semibold text-sm mb-1 group-hover:opacity-100">学习教育</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">论文 · 搜题 · 语言 · 知识</p>
+            </div>
+            <!-- 设计创作 -->
+            <div class="scene-card glass rounded-2xl p-5 cursor-pointer transition-all hover:bg-white/[0.08] hover:border-white/20 group" onclick="verticalFilter('design')">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-base" style="background:rgba(236,72,153,0.15);color:#f472b6"><i class="fa-solid fa-palette"></i></div>
+                <h3 class="tw font-semibold text-sm mb-1 group-hover:opacity-100">设计创作</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">UI · 图像 · 3D · 品牌</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 工具库 v3.1：分类分组 ===== -->
+<section id="tools" class="px-6 pb-16">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-bold tw">工具库</h2>
+            <span id="toolCount" class="text-sm text-gray-500">500+ 款精选</span>
+        </div>
+        <div id="toolSections"><!-- JS 动态渲染分组 --></div>
+        <div id="noResults" class="hidden text-center py-24">
+            <div class="text-5xl mb-4 opacity-30"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <p class="text-gray-500 text-lg">没有找到匹配的工具</p>
+            <p class="text-gray-600 text-sm mt-2">试试调整搜索关键词或切换分类</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 工具组合 ===== -->
+<section id="workflows" class="px-6 pb-20">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-xl font-bold mb-6 flex items-center gap-2 tw">
+            <span class="w-1.5 h-6 rounded-full bg-gradient-to-b from-purple-400 to-cyan-400"></span>推荐工具组合</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 workflow-grid" id="workflowGrid"></div>
+    </div>
+</section>
+
+<!-- ===== 对比区 ===== -->
+<section id="compare" class="px-6 pb-28">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-2xl font-bold mb-8 text-center tw">工具对比</h2>
+        <div class="glass rounded-2xl p-6 mb-6">
+            <p class="text-gray-400 text-sm mb-4">选择同分类下的两个工具进行详细对比</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="relative">
+                    <label class="text-xs text-gray-500 mb-1.5 block">工具 A</label>
+                    <select id="compareA" class="cs"><option value="">-- 选择工具 --</option></select>
+                    <svg class="absolute right-3 top-[58%] w-4 h-4 text-gray-500 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="relative">
+                    <label class="text-xs text-gray-500 mb-1.5 block">工具 B</label>
+                    <select id="compareB" class="cs"><option value="">-- 请先选择工具 A --</option></select>
+                    <svg class="absolute right-3 top-[58%] w-4 h-4 text-gray-500 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+            </div>
+            <div class="flex justify-end mt-3">
+                <button onclick="shareCompare()" class="text-xs text-gray-500 hover:text-white transition-colors flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>复制对比结果
+                </button>
+            </div>
+        </div>
+        <div id="compareResult"></div>
+        <div id="defaultCompare" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 compare-duo">
+                <div class="glass rounded-2xl p-8 text-center relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-10" style="background:radial-gradient(circle at 35% 25%,#a855f7,transparent 70%);"></div>
+                    <div class="relative">
+                        <div class="tool-icon mx-auto mb-4" style="background:rgba(168,85,247,0.15);"><img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=64" alt="Claude" onerror="this.style.display='none';this.parentElement.nextElementSibling.style.display='flex';"></div>
+                        <div class="tool-icon-fb mx-auto mb-4">C</div>
+                        <h3 class="text-3xl font-bold text-white mb-1">Claude</h3>
+                        <p class="text-gray-400 text-sm mb-4">Anthropic · Opus 4.8 · 200K 上下文</p>
+                        <div class="flex justify-center items-center gap-2 mb-3"><span style="color:#fbbf24;font-size:1.25rem;">★★★★★</span><span class="text-gray-300 font-semibold text-lg">4.8</span></div>
+                        <div class="inline-block px-4 py-1.5 rounded-full glass text-sm" style="color:#c084fc">对话助手</div>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl p-8 text-center relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-10" style="background:radial-gradient(circle at 65% 25%,#22d3ee,transparent 70%);"></div>
+                    <div class="relative">
+                        <div class="tool-icon mx-auto mb-4" style="background:rgba(34,211,238,0.08);"><img src="https://www.google.com/s2/favicons?domain=chatgpt.com&sz=64" alt="ChatGPT" onerror="this.style.display='none';this.parentElement.nextElementSibling.style.display='flex';"></div>
+                        <div class="tool-icon-fb mx-auto mb-4">C</div>
+                        <h3 class="text-3xl font-bold text-white mb-1">ChatGPT</h3>
+                        <p class="text-gray-400 text-sm mb-4">OpenAI · GPT-5.5 · 多模态旗舰</p>
+                        <div class="flex justify-center items-center gap-2 mb-3"><span style="color:#fbbf24;font-size:1.25rem;">★★★★★</span><span class="text-gray-300 font-semibold text-lg">4.7</span></div>
+                        <div class="inline-block px-4 py-1.5 rounded-full glass text-sm" style="color:#67e8f9">对话助手</div>
+                    </div>
+                </div>
+            </div>
+            <div class="glass rounded-2xl overflow-hidden">
+                <table class="w-full detail-table">
+                    <thead><tr><th class="px-6 py-3.5 text-left text-sm font-semibold text-white border-b border-white/5 bg-white/[0.03]">对比维度</th><th class="px-6 py-3.5 text-center text-sm font-semibold border-b border-white/5 bg-white/[0.03]" style="color:#c084fc">Claude</th><th class="px-6 py-3.5 text-center text-sm font-semibold border-b border-white/5 bg-white/[0.03]" style="color:#67e8f9">ChatGPT</th></tr></thead>
+                    <tbody>
+                        <tr><td>开发商</td><td class="text-center">Anthropic</td><td class="text-center">OpenAI</td></tr>
+                        <tr><td>首发年份</td><td class="text-center">2023</td><td class="text-center">2022</td></tr>
+                        <tr><td>最新旗舰模型</td><td class="hl text-center">Claude Opus 4.8 (2026.05)</td><td class="hc text-center">GPT-5.5 (2026.04)</td></tr>
+                        <tr><td>上下文窗口</td><td class="hl text-center">200K tokens</td><td class="text-center">128K tokens</td></tr>
+                        <tr><td>免费版</td><td class="text-center text-green-400">✓ 每日30-100条</td><td class="text-center text-green-400">✓ 有限次数</td></tr>
+                        <tr><td>入门付费</td><td class="text-center">Pro $20/月</td><td class="text-center">Plus $20/月</td></tr>
+                        <tr><td>高端套餐</td><td class="hl text-center">Max $100-200/月</td><td class="text-center">Pro $100-200/月</td></tr>
+                        <tr><td>多模态</td><td class="text-center text-green-400">✓</td><td class="text-center text-green-400">✓</td></tr>
+                        <tr><td>联网搜索</td><td class="text-center text-green-400">✓</td><td class="text-center text-green-400">✓</td></tr>
+                        <tr><td>代码能力</td><td class="hl text-center">Claude Code 终端代理</td><td class="text-center text-green-400">✓ Code Interpreter</td></tr>
+                        <tr><td>插件生态</td><td class="text-center">MCP 协议, Projects</td><td class="hc text-center">插件商店 + GPTs</td></tr>
+                        <tr><td>核心优势</td><td class="hl text-center text-sm">超长上下文 · 深度分析<br>代码生成 · 安全性</td><td class="hc text-center text-sm">多模态 · 插件丰富<br>创意生成 · 生态成熟</td></tr>
+                        <tr><td>主要局限</td><td class="text-sm text-center text-gray-500">无原生图像生成<br>生态不如 GPT 丰富</td><td class="text-sm text-center text-gray-500">长文本偶尔遗漏<br>高峰期响应变慢</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="glass rounded-2xl p-6">
+                <h3 class="text-white font-semibold mb-5 flex items-center gap-2"><span class="w-1 h-5 rounded-full bg-gradient-to-b from-purple-400 to-cyan-400"></span>选型建议</h3>
+                <div class="mb-5"><p class="text-xs text-gray-500 uppercase tracking-wider mb-3">场景匹配度</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                        <div class="gh glass rounded-xl p-4"><p class="text-purple-light font-medium mb-2">选 Claude 如果——</p>
+                            <ul class="space-y-2 text-gray-400">
+                                <li class="flex items-start gap-2"><span class="text-purple-light mt-0.5">▸</span> 需要分析超长文档（论文、合同、代码库）</li>
+                                <li class="flex items-start gap-2"><span class="text-purple-light mt-0.5">▸</span> 深度写作：学术论文、长篇报告、技术文档</li>
+                                <li class="flex items-start gap-2"><span class="text-purple-light mt-0.5">▸</span> 开发者重度使用 Claude Code 编程</li>
+                                <li class="flex items-start gap-2"><span class="text-purple-light mt-0.5">▸</span> 对 AI 安全性和可控性有要求</li>
+                            </ul>
+                        </div>
+                        <div class="gh glass rounded-xl p-4"><p class="text-cyan-light font-medium mb-2">选 ChatGPT 如果——</p>
+                            <ul class="space-y-2 text-gray-400">
+                                <li class="flex items-start gap-2"><span class="text-cyan-light mt-0.5">▸</span> 需要图像识别/生成/语音等多模态交互</li>
+                                <li class="flex items-start gap-2"><span class="text-cyan-light mt-0.5">▸</span> 依赖 GPTs 插件商店定制工作流</li>
+                                <li class="flex items-start gap-2"><span class="text-cyan-light mt-0.5">▸</span> 日常多场景高频使用</li>
+                                <li class="flex items-start gap-2"><span class="text-cyan-light mt-0.5">▸</span> 需要成熟的移动端 App</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-5"><p class="text-xs text-gray-500 uppercase tracking-wider mb-3">性价比分析</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                        <div class="gh glass rounded-xl p-4"><p class="text-purple-light font-medium mb-2">Claude</p><div class="space-y-1.5 text-gray-400"><p>免费版日30-100条</p><p>Pro $20/月</p><p>Max $100-200/月</p><p class="text-xs text-gray-500 mt-1">免费版质量高</p></div></div>
+                        <div class="gh glass rounded-xl p-4"><p class="text-cyan-light font-medium mb-2">ChatGPT</p><div class="space-y-1.5 text-gray-400"><p>免费版次优模型</p><p>Plus $20/月（含 DALL·E+Sora）</p><p>Pro $100-200/月</p><p class="text-xs text-gray-500 mt-1">Plus 含图像和视频能力</p></div></div>
+                    </div>
+                </div>
+                <div class="gh glass rounded-xl p-4">
+                    <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">最终建议</p>
+                    <p class="text-sm text-gray-300 leading-relaxed">建议<strong class="text-white">双持免费版</strong>对比体验。预算允许<strong class="text-white">双持 Pro</strong> 最优——Claude 负责深度分析，ChatGPT 负责多模态。只能选一个：<strong class="text-purple-light">重度文本用户选 Claude</strong>，<strong class="text-cyan-light">多模态需求选 ChatGPT</strong>。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="navbar border-t border-white/5 py-8 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+        <div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-gradient-to-br from-purple-500 to-cyan-400 flex items-center justify-center text-white font-bold text-xs">AI</div><span class="text-sm text-gray-500">AI 工具导航 · 500+ 款精选</span></div>
+        <div class="flex items-center gap-2 text-sm text-gray-500"><span>Built by</span><span class="tn font-medium">代号大学生</span><span>· 2026</span></div>
+    </div>
+</footer>
+</div>
+
+<div id="toastContainer"></div>
+
+<script>
+
+// ========== 状态 ==========
+let activeCat='all',query='',showFavsOnly=false,activeCompany='all',activeIdentity='all',activeScene='all',activeFilter='all';
+let favs=JSON.parse(localStorage.getItem('aiNavFavs')||'[]');
+
+// ========== 公司映射 ==========
+function getCompany(t){return COMPANY[t.domain]||'其他';}
+
+// ========== 公司筛选 ==========
+const companyFilter = document.getElementById('ldCompanyFilter');
+function populateCompanyFilter(){
+    const companies = [...new Set(TOOLS.map(t=>getCompany(t)))].sort();
+    companyFilter.innerHTML = '<option value="all">全部公司</option>'+companies.map(c=>`<option value="${c}">${c}</option>`).join('');
+}
+companyFilter.addEventListener('change',()=>{activeCompany=companyFilter.value;renderToolSections();closeSidebar();document.getElementById('tools').scrollIntoView({behavior:'smooth'});toast('开发商：'+(companyFilter.value==='all'?'全部':companyFilter.value));});
+
+// ========== Toast ==========
+function toast(m){const e=document.createElement('div');e.className='toast';e.textContent=m;document.getElementById('toastContainer').appendChild(e);setTimeout(()=>e.remove(),2500);}
+
+// ========== 收藏 ==========
+function toggleFav(n){const i=favs.indexOf(n);if(i>-1)favs.splice(i,1);else favs.push(n);localStorage.setItem('aiNavFavs',JSON.stringify(favs));renderToolSections();toast(i>-1?'已取消收藏':'已加入收藏');}
+
+// ========== 复制对比 ==========
+function shareCompare(){const a=TOOLS.find(t=>t.name===document.getElementById('compareA').value),b=TOOLS.find(t=>t.name===document.getElementById('compareB').value);if(!a||!b){toast('请先选择两个工具');return;}let t=`【AI 工具对比】${a.name} vs ${b.name}\n分类: ${a.cat}\n\n${a.name}: ${a.pricing} | 评分 ${a.rating}\n${a.desc}\n\n${b.name}: ${b.pricing} | 评分 ${b.rating}\n${b.desc}\n\n--- 来自 AI 工具导航 · 代号大学生 2026`;navigator.clipboard.writeText(t).then(()=>toast('对比结果已复制')).catch(()=>toast('复制失败'));}
+
+// ========== 向导 ==========
+const catMap={chat:'对话助手',image:'图像生成',write:'文案写作',code:'代码辅助',video:'视频生成',audio:'音频&音乐',data:'数据分析',auto:'效率&自动化',agent:'AI Agent',search:'AI搜索',browser:'AI浏览器',design:'AI设计',api:'AI API'};
+
+// ========== 渲染工具（分组视图）==========
+const searchInput=document.getElementById('searchInput'),toolCount=document.getElementById('toolCount'),noResults=document.getElementById('noResults'),resultHint=document.getElementById('resultHint'),ldCatTags=document.getElementById('ldCatTags'),toolSections=document.getElementById('toolSections');
+const categories=['all',...new Set(TOOLS.map(t=>t.cat))];
+categories.forEach(c=>{if(c==='all')return;const b=document.createElement('button');b.className='ld-tag';b.textContent=c;b.dataset.cat=c;b.addEventListener('click',()=>{activeCat=c;updateLdTags();renderToolSections();closeSidebar();document.getElementById('tools').scrollIntoView({behavior:'smooth'});toast('分类：'+c);});ldCatTags.appendChild(b);});
+ldCatTags.querySelector('[data-cat="all"]').addEventListener('click',()=>{activeCat='all';updateLdTags();renderToolSections();closeSidebar();document.getElementById('tools').scrollIntoView({behavior:'smooth'});toast('显示全部工具');});
+function updateLdTags(){document.querySelectorAll('#ldCatTags .ld-tag').forEach(t=>t.classList.toggle('active',t.dataset.cat===activeCat||(t.dataset.cat==='all'&&activeCat==='all')));}
+searchInput.addEventListener('input',e=>{query=e.target.value.trim().toLowerCase();renderToolSections();});
+
+// ===== 身份分类 =====
+function getIdentity(t){
+    const s=[];
+    const d=t.desc.toLowerCase(),c=t.cat,p=t.pricing.toLowerCase();
+    if(c==='文案写作'||(/论文|笔记|学习|PPT|课件|写作|阅读/).test(d))s.push('student');
+    if((/辅导|搜题|学习|青少年|K12|解题/).test(d)||(c==='对话助手'&&p.includes('免费'))||(c==='AI搜索'&&p.includes('免费')))s.push('school');
+    if(c==='效率&自动化'||c==='数据分析'||c==='AI设计'||(/办公|PPT|效率|自动化|工作流|企业|翻译|营销|法律|医疗/).test(d))s.push('career');
+    if(c==='图像生成'||c==='视频生成'||c==='音频&音乐'||c==='AI设计'||c==='文案写作'||(/创作|设计|绘画|视频|音乐|写作|内容/).test(d))s.push('creator');
+    if(c==='代码辅助'||c==='AI Agent'||c==='AI API'||(/API|开源|部署|编程|代码|开发|框架|SDK|模型/).test(d))s.push('dev');
+    if(c==='AI搜索'||c==='数据分析'||(/学术|研究|论文|文献|科研|科学/).test(d))s.push('research');
+    return s;
+}
+// ===== 场景分类（精选场景卡片） =====
+function getScenes(t){
+    const s=[];
+    const d=t.desc.toLowerCase(),c=t.cat;
+    if(c==='效率&自动化'||c==='数据分析'||c==='语音识别'||(/办公|PPT|效率|自动化|文档|会议|翻译|流程/).test(d))s.push('office');
+    if(c==='图像生成'||c==='视频生成'||c==='音频&音乐'||c==='文案写作'||(/创作|生成|编辑|制作|写作/).test(d))s.push('create');
+    if(c==='代码辅助'||c==='AI API'||(/编程|代码|开发|部署|IDE|API|Agent/).test(d))s.push('code');
+    if(c==='AI搜索'||(/论文|学习|搜题|教育|课程|辅导|知识|阅读|语言/).test(d))s.push('learn');
+    if(c==='AI设计'||c==='图像生成'||(/设计|UI|原型|排版|品牌|海报|图标/).test(d))s.push('design');
+    return s;
+}
+// 侧边栏身份筛选事件
+document.querySelectorAll('#ldIdentityTags .ld-tag').forEach(b=>{
+    b.addEventListener('click',function(){
+        document.querySelectorAll('#ldIdentityTags .ld-tag').forEach(x=>x.classList.remove('active'));
+        this.classList.add('active');
+        activeIdentity=this.dataset.identity;
+        activeScene='all';
+        renderToolSections();
+        closeSidebar();
+        document.getElementById('tools').scrollIntoView({behavior:'smooth'});
+        toast('身份：'+this.textContent.trim().replace(/^[^\s]+\s/,''));
+    });
+});
+
+// 侧边栏视图筛选（全部/免费/付费/热门/新上线/收藏夹）
+document.querySelectorAll('#ldViewTags .ld-tag').forEach(b=>{
+    b.addEventListener('click',function(){
+        document.querySelectorAll('#ldViewTags .ld-tag').forEach(x=>x.classList.remove('active'));
+        this.classList.add('active');
+        activeFilter=this.dataset.filter;
+        if(activeFilter==='favs'){showFavsOnly=true;activeFilter='all';document.getElementById('ldFavTab').classList.remove('active');document.querySelector('#ldViewTags .ld-tag[data-filter="all"]').classList.add('active');}
+        else showFavsOnly=false;
+        renderToolSections();
+        closeSidebar();
+        document.getElementById('tools').scrollIntoView({behavior:'smooth'});
+        toast('视图：'+this.textContent.trim().replace(/^[^\s]+\s/,''));
+    });
+});
+
+// 侧边栏垂直场景筛选
+document.querySelectorAll('#ldSceneTags .ld-tag').forEach(b=>{
+    b.addEventListener('click',function(){
+        document.querySelectorAll('#ldSceneTags .ld-tag').forEach(x=>x.classList.remove('active'));
+        this.classList.add('active');
+        verticalFilter(this.dataset.scene);
+        toast('场景：'+this.textContent.trim().replace(/^[^\s]+\s/,''));
+    });
+});
+
+function sHTML(r){const f=Math.floor(r),h=r-f>=0.5?1:0;return'<span style="color:#fbbf24;letter-spacing:1px;">'+'★'.repeat(f)+(h?'½':'')+'☆'.repeat(5-f-h)+'</span>';}
+function formatPricing(p){
+    if(!p||p==='-')return '-';
+    // Show first two pricing tiers, max
+    const parts=p.split('/');
+    if(parts.length<=2)return p.length>20?p.substring(0,18)+'...':p;
+    const first=parts.slice(0,2).join('/');
+    return first.length>22?first.substring(0,20)+'...':first+(parts.length>2?'...':'');
+}
+
+function renderToolSections(){
+    let filtered=TOOLS.filter(t=>{
+        if(activeCat!=='all'&&t.cat!==activeCat)return false;
+        if(showFavsOnly&&!favs.includes(t.name))return false;
+        if(activeCompany!=='all'&&getCompany(t)!==activeCompany)return false;
+        if(activeIdentity!=='all'&&!getIdentity(t).includes(activeIdentity))return false;
+        if(activeScene!=='all'&&!getScenes(t).includes(activeScene))return false;
+        if(activeFilter==='free'&&!t.pricing.toLowerCase().includes('免费'))return false;
+        if(activeFilter==='paid'&&t.pricing.toLowerCase().includes('免费')&&!t.pricing.toLowerCase().includes('付费'))return false;
+        if(activeFilter==='hot'&&t.rating<4.3)return false;
+        if(activeFilter==='new'&&(!t.year||t.year<2025))return false;
+        if(query&&!t.name.toLowerCase().includes(query)&&!t.desc.toLowerCase().includes(query)&&!t.cat.toLowerCase().includes(query))return false;
+        return true;
+    });
+    if(filtered.length===0){toolSections.innerHTML='';noResults.classList.remove('hidden');toolCount.textContent='无匹配结果';resultHint.classList.add('hidden');return;}
+    noResults.classList.add('hidden');
+    toolCount.textContent=`${filtered.length} 款`;
+    resultHint.textContent=(query||activeCat!=='all'||showFavsOnly)?`${filtered.length} 个`:'';
+    resultHint.classList.toggle('hidden',!query&&activeCat==='all'&&!showFavsOnly);
+
+    // 分组
+    const grouped={};
+    const orderedCats=[];
+    filtered.forEach(t=>{if(!grouped[t.cat]){grouped[t.cat]=[];orderedCats.push(t.cat);}grouped[t.cat].push(t);});
+
+    toolSections.innerHTML = orderedCats.map(cat=>`
+        <div class="mb-8">
+            <div class="flex items-center gap-3 mb-3">
+                <h3 class="text-base font-semibold tw">${cat}</h3>
+                <span class="text-xs text-gray-600">${grouped[cat].length} 款</span>
+            </div>
+            <div class="tool-grid grid gap-4">
+                ${grouped[cat].map((t,i)=>{
+                    const isF=favs.includes(t.name);
+                    const iH=t.domain?`<div class="tool-icon"><img src="https://www.google.com/s2/favicons?domain=${t.domain}&sz=64" alt="${t.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.nextElementSibling.style.display='flex';"></div><div class="tool-icon-fb">${t.name.charAt(0)}</div>`:`<div class="tool-icon-fb" style="display:flex;">${t.name.charAt(0)}</div>`;
+                    return `
+                    <div class="tool-card glass p-5 cursor-pointer" style="animation-delay:${i*0.04}s" onclick="event.target.closest('.fav-btn')?null:window.open('${t.url}','_blank')">
+                        <div class="flex items-center gap-3 mb-3">
+                            ${iH}
+                            <div class="flex-1 min-w-0">
+                                <h3 class="text-white font-semibold text-sm truncate">${t.name}</h3>
+                                <p class="text-gray-500 text-xs">${getCompany(t)}</p>
+                            </div>
+                            <button class="fav-btn ${isF?'faved':''} text-base flex-shrink-0" onclick="event.stopPropagation();toggleFav('${t.name}')">${isF?'★':'☆'}</button>
+                        </div>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-3 line-clamp-2 min-h-[2.5em]">${t.desc}</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs">${sHTML(t.rating)} <span class="text-gray-500 ml-1">${t.rating}</span></span>
+                            <span class="text-[11px] text-gray-600 truncate ml-2 max-w-[140px]" title="${t.pricing}">${formatPricing(t.pricing)}</span>
+                        </div>
+                    </div>`;
+                }).join('')}
+            </div>
+        </div>
+    `).join('');
+    document.getElementById('ldFavTab').innerHTML='<i class="fa-solid fa-star"></i> 收藏夹 ('+favs.length+')';
+}
+
+// ========== 渲染工作流 ==========
+function renderWorkflows(){
+    const wf=ALL_WF;
+    document.getElementById('workflowGrid').innerHTML=wf.map(w=>`
+        <div class="wf-card glass rounded-2xl p-5">
+            <p class="tw font-semibold mb-1.5">${w.title}</p>
+            <p class="text-gray-500 text-xs mb-3">${w.desc}</p>
+            <div class="flex flex-wrap gap-1.5 mb-3">
+                ${w.tools.map(tn=>`<span class="text-xs px-2 py-0.5 rounded-full glass text-gray-400">${tn}</span>`).join('<span class="wf-arrow text-gray-600 text-xs">→</span>')}
+            </div>
+            <p class="text-xs text-gray-600">${w.flow}</p>
+        </div>
+    `).join('');
+}
+
+// ========== 右侧热门预览（本周真实热门） ==========
+function renderTrending(){
+    const tp=document.getElementById('trendingPreview');if(!tp)return;
+    // 本周热门：综合热度+评分+近期讨论量的精选列表
+    const hotNames=['ChatGPT','Claude','DeepSeek','Midjourney','Cursor','Kimi','豆包','Suno v4.5','Kling 2.0','Perplexity','即梦 AI','Marvis'];
+    const hot=hotNames.map(n=>TOOLS.find(t=>t.name===n)).filter(Boolean).slice(0,8);
+    tp.innerHTML=hot.map((t,i)=>{const rank=i+1;const colors=['#fbbf24','#d4d4d8','#cd7f32','#9ca3af','#9ca3af','#9ca3af','#9ca3af','#9ca3af'];
+        return `<div class="flex items-center gap-2.5 text-sm cursor-pointer group" onclick="window.open('${t.url}','_blank')">
+        <span class="text-xs font-bold w-5 text-center flex-shrink-0" style="color:${colors[i]}">${rank}</span>
+        <div class="w-7 h-7 rounded-lg flex-shrink-0 flex items-center justify-center bg-white/5 overflow-hidden"><img src="https://www.google.com/s2/favicons?domain=${t.domain}&sz=32" alt="${t.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='${t.name.charAt(0)}';this.parentElement.style.color='#c084fc';this.parentElement.style.fontWeight='700';" style="width:18px;height:18px;"></div>
+        <div class="flex-1 min-w-0"><p class="text-white truncate text-sm group-hover:text-purple-light transition-colors">${t.name}</p><p class="text-gray-500 text-xs truncate">${t.cat} · ★ ${t.rating}</p></div>
+        </div>`;}).join('');
+}
+
+// ========== 对比 ==========
+const selA=document.getElementById('compareA'),selB=document.getElementById('compareB'),defC=document.getElementById('defaultCompare'),cr=document.getElementById('compareResult');
+function popA(){selA.innerHTML='<option value="">-- 选择工具 --</option>';[...new Set(TOOLS.map(t=>t.cat))].forEach(cat=>{const og=document.createElement('optgroup');og.label=cat;TOOLS.filter(t=>t.cat===cat).forEach(t=>{const o=document.createElement('option');o.value=t.name;o.textContent=`${t.name} (${t.pricing})`;og.appendChild(o);});selA.appendChild(og);});}
+selA.addEventListener('change',()=>{const s=TOOLS.find(t=>t.name===selA.value);selB.innerHTML='<option value="">-- 选择工具 --</option>';if(s)TOOLS.filter(t=>t.cat===s.cat&&t.name!==s.name).forEach(t=>{const o=document.createElement('option');o.value=t.name;o.textContent=`${t.name} (${t.pricing})`;selB.appendChild(o);});if(selA.value&&selB.value)sC();else{cr.innerHTML='';defC.style.display='block';}});
+selB.addEventListener('change',()=>{if(selA.value&&selB.value)sC();else{cr.innerHTML='';defC.style.display='block';}});
+function sC(){
+    const a=TOOLS.find(t=>t.name===selA.value),b=TOOLS.find(t=>t.name===selB.value);if(!a||!b)return;
+    defC.style.display='none';const cat=a.cat;let d='';
+    if(cat==='对话助手')d=`<tr><td>开发商</td><td class="text-center">${a.domain||'-'}</td><td class="text-center">${b.domain||'-'}</td></tr><tr><td>首发年份</td><td class="text-center">${a.year||'-'}</td><td class="text-center">${b.year||'-'}</td></tr><tr><td>上下文窗口</td><td class="hl text-center">${a.ctx||'-'}</td><td class="hc text-center">${b.ctx||'-'}</td></tr><tr><td>多模态</td><td class="text-center">${a.multi?'✓':'✗'}</td><td class="text-center">${b.multi?'✓':'✗'}</td></tr><tr><td>联网搜索</td><td class="text-center">${a.web?'✓':'✗'}</td><td class="text-center">${b.web?'✓':'✗'}</td></tr><tr><td>代码能力</td><td class="text-center">${a.code?'✓':'✗'}</td><td class="text-center">${b.code?'✓':'✗'}</td></tr><tr><td>价格</td><td class="text-center">${a.pricing}</td><td class="text-center">${b.pricing}</td></tr><tr><td>评分</td><td class="hl text-center">${a.rating}</td><td class="hc text-center">${b.rating}</td></tr>`;
+    else if(cat==='图像生成')d=`<tr><td>最高分辨率</td><td class="hl text-center">${a.res||'-'}</td><td class="hc text-center">${b.res||'-'}</td></tr><tr><td>风格特点</td><td class="text-center">${a.style||'-'}</td><td class="text-center">${b.style||'-'}</td></tr><tr><td>价格</td><td class="text-center">${a.pricing}</td><td class="text-center">${b.pricing}</td></tr><tr><td>评分</td><td class="hl text-center">${a.rating}</td><td class="hc text-center">${b.rating}</td></tr>`;
+    else if(cat==='文案写作')d=`<tr><td>语言支持</td><td class="text-center">${a.lang||'-'}</td><td class="text-center">${b.lang||'-'}</td></tr><tr><td>模板数量</td><td class="text-center">${a.templates||'-'}</td><td class="text-center">${b.templates||'-'}</td></tr><tr><td>SEO优化</td><td class="text-center">${a.seo?'✓':'✗'}</td><td class="text-center">${b.seo?'✓':'✗'}</td></tr><tr><td>价格</td><td class="text-center">${a.pricing}</td><td class="text-center">${b.pricing}</td></tr><tr><td>评分</td><td class="hl text-center">${a.rating}</td><td class="hc text-center">${b.rating}</td></tr>`;
+    else if(cat==='代码辅助')d=`<tr><td>IDE支持</td><td class="text-center">${a.ide||'-'}</td><td class="text-center">${b.ide||'-'}</td></tr><tr><td>语言覆盖</td><td class="text-center">${a.langs||'-'}</td><td class="text-center">${b.langs||'-'}</td></tr><tr><td>上下文深度</td><td class="hl text-center">${a.ctx||'-'}</td><td class="hc text-center">${b.ctx||'-'}</td></tr><tr><td>价格</td><td class="text-center">${a.pricing}</td><td class="text-center">${b.pricing}</td></tr><tr><td>评分</td><td class="hl text-center">${a.rating}</td><td class="hc text-center">${b.rating}</td></tr>`;
+    else if(cat==='视频生成')d=`<tr><td>最长时长</td><td class="hl text-center">${a.dur||'-'}</td><td class="hc text-center">${b.dur||'-'}</td></tr><tr><td>最高分辨率</td><td class="text-center">${a.res||'-'}</td><td class="text-center">${b.res||'-'}</td></tr><tr><td>风格</td><td class="text-center">${a.style||'-'}</td><td class="text-center">${b.style||'-'}</td></tr><tr><td>价格</td><td class="text-center">${a.pricing}</td><td class="text-center">${b.pricing}</td></tr><tr><td>评分</td><td class="hl text-center">${a.rating}</td><td class="hc text-center">${b.rating}</td></tr>`;
+    else if(cat==='音频&音乐')d=`<tr><td>最长时长</td><td class="hl text-center">${a.dur||'-'}</td><td class="hc text-center">${b.dur||'-'}</td></tr><tr><td>风格类型</td><td class="text-center">${a.style||'-'}</td><td class="text-center">${b.style||'-'}</td></tr><tr><td>价格</td><td class="text-center">${a.pricing}</td><td class="text-center">${b.pricing}</td></tr><tr><td>评分</td><td class="hl text-center">${a.rating}</td><td class="hc text-center">${b.rating}</td></tr>`;
+    else if(cat==='AI Agent')d=`<tr><td>类型</td><td class="text-center">${a.pricing.includes('开源')?'开源框架':'商业产品'}</td><td class="text-center">${b.pricing.includes('开源')?'开源框架':'商业产品'}</td></tr><tr><td>自主程度</td><td class="hl text-center">${a.rating>=4.5?'高自主':'中等'}</td><td class="hc text-center">${b.rating>=4.5?'高自主':'中等'}</td></tr><tr><td>价格</td><td class="text-center">${a.pricing}</td><td class="text-center">${b.pricing}</td></tr><tr><td>评分</td><td class="hl text-center">${a.rating}</td><td class="hc text-center">${b.rating}</td></tr>`;
+    else if(cat==='AI设计')d=`<tr><td>平台类型</td><td class="text-center">${a.pricing.includes('免费')?'有免费版':'纯付费'}</td><td class="text-center">${b.pricing.includes('免费')?'有免费版':'纯付费'}</td></tr><tr><td>模板资源</td><td class="hl text-center">${a.rating>=4.5?'极丰富':a.rating>=4?'丰富':'标准'}</td><td class="hc text-center">${b.rating>=4.5?'极丰富':b.rating>=4?'丰富':'标准'}</td></tr><tr><td>价格</td><td class="text-center">${a.pricing}</td><td class="text-center">${b.pricing}</td></tr><tr><td>评分</td><td class="hl text-center">${a.rating}</td><td class="hc text-center">${b.rating}</td></tr>`;
+    else if(cat==='AI API')d=`<tr><td>模型系列</td><td class="text-center">${a.models||'-'}</td><td class="text-center">${b.models||'-'}</td></tr><tr><td>上下文</td><td class="hl text-center">${a.ctx||'-'}</td><td class="hc text-center">${b.ctx||'-'}</td></tr><tr><td>价格策略</td><td class="text-center">${a.pricing}</td><td class="text-center">${b.pricing}</td></tr><tr><td>评分</td><td class="hl text-center">${a.rating}</td><td class="hc text-center">${b.rating}</td></tr>`;
+    else d=`<tr><td>价格</td><td class="text-center">${a.pricing}</td><td class="text-center">${b.pricing}</td></tr><tr><td>评分</td><td class="hl text-center">${a.rating}</td><td class="hc text-center">${b.rating}</td></tr>`;
+
+    const iA=a.domain?`<div class="tool-icon mx-auto mb-4" style="background:rgba(168,85,247,0.15);"><img src="https://www.google.com/s2/favicons?domain=${a.domain}&sz=64" alt="${a.name}" onerror="this.style.display='none';this.parentElement.nextElementSibling.style.display='flex';"></div><div class="tool-icon-fb mx-auto mb-4">${a.name.charAt(0)}</div>`:`<div class="tool-icon-fb mx-auto mb-4" style="display:flex;">${a.name.charAt(0)}</div>`;
+    const iB=b.domain?`<div class="tool-icon mx-auto mb-4" style="background:rgba(34,211,238,0.08);"><img src="https://www.google.com/s2/favicons?domain=${b.domain}&sz=64" alt="${b.name}" onerror="this.style.display='none';this.parentElement.nextElementSibling.style.display='flex';"></div><div class="tool-icon-fb mx-auto mb-4">${b.name.charAt(0)}</div>`:`<div class="tool-icon-fb mx-auto mb-4" style="display:flex;">${b.name.charAt(0)}</div>`;
+
+    cr.innerHTML=`<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"><div class="glass rounded-2xl p-8 text-center relative overflow-hidden"><div class="absolute inset-0 opacity-10" style="background:radial-gradient(circle at 35% 25%,#a855f7,transparent 70%);"></div><div class="relative">${iA}<h3 class="text-3xl font-bold text-white mb-1">${a.name}</h3><p class="text-gray-400 text-sm mb-3">${a.cat}</p><div class="mb-3">${sHTML(a.rating)} <span class="text-gray-300 font-semibold ml-1">${a.rating}</span></div><p class="text-gray-400 text-sm leading-relaxed">${a.desc}</p></div></div><div class="glass rounded-2xl p-8 text-center relative overflow-hidden"><div class="absolute inset-0 opacity-10" style="background:radial-gradient(circle at 65% 25%,#22d3ee,transparent 70%);"></div><div class="relative">${iB}<h3 class="text-3xl font-bold text-white mb-1">${b.name}</h3><p class="text-gray-400 text-sm mb-3">${b.cat}</p><div class="mb-3">${sHTML(b.rating)} <span class="text-gray-300 font-semibold ml-1">${b.rating}</span></div><p class="text-gray-400 text-sm leading-relaxed">${b.desc}</p></div></div></div>
+        <div class="glass rounded-2xl overflow-hidden mb-6"><table class="w-full detail-table"><thead><tr><th class="px-6 py-3.5 text-left text-sm font-semibold text-white border-b border-white/5 bg-white/[0.03]">对比维度</th><th class="px-6 py-3.5 text-center text-sm font-semibold border-b border-white/5 bg-white/[0.03]" style="color:#c084fc">${a.name}</th><th class="px-6 py-3.5 text-center text-sm font-semibold border-b border-white/5 bg-white/[0.03]" style="color:#67e8f9">${b.name}</th></tr></thead><tbody>${d}</tbody></table></div>
+        <div class="glass rounded-2xl p-6"><h3 class="text-white font-semibold mb-5 flex items-center gap-2"><span class="w-1 h-5 rounded-full bg-gradient-to-b from-purple-400 to-cyan-400"></span>选型建议</h3>
+        <div class="mb-5"><p class="text-xs text-gray-500 uppercase tracking-wider mb-3">场景匹配度</p><div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+        <div class="gh glass rounded-xl p-4"><p class="text-purple-light font-medium mb-2">选 ${a.name} 如果——</p><ul class="space-y-1.5 text-gray-400">${(a.best||'').split(' · ').map(s=>`<li class="flex items-start gap-2"><span class="text-purple-light mt-0.5">▸</span> ${s.trim()}</li>`).join('')}${a.weak?`<li class="flex items-start gap-2 mt-1"><span class="text-gray-600 mt-0.5">⚠</span><span class="text-gray-500 text-xs">${a.weak}</span></li>`:''}</ul></div>
+        <div class="gh glass rounded-xl p-4"><p class="text-cyan-light font-medium mb-2">选 ${b.name} 如果——</p><ul class="space-y-1.5 text-gray-400">${(b.best||'').split(' · ').map(s=>`<li class="flex items-start gap-2"><span class="text-cyan-light mt-0.5">▸</span> ${s.trim()}</li>`).join('')}${b.weak?`<li class="flex items-start gap-2 mt-1"><span class="text-gray-600 mt-0.5">⚠</span><span class="text-gray-500 text-xs">${b.weak}</span></li>`:''}</ul></div></div></div>
+        <div class="mb-5"><p class="text-xs text-gray-500 uppercase tracking-wider mb-3">性价比</p><div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm"><div class="gh glass rounded-xl p-4"><p class="text-purple-light font-medium mb-2">${a.name}</p><div class="space-y-1 text-gray-400"><p>${a.pricing}</p><p class="text-xs text-gray-500 mt-1">${a.rating>=4.5?'综合评分高':a.rating>=4?'性价比中等':'价格偏高'}</p></div></div><div class="gh glass rounded-xl p-4"><p class="text-cyan-light font-medium mb-2">${b.name}</p><div class="space-y-1 text-gray-400"><p>${b.pricing}</p><p class="text-xs text-gray-500 mt-1">${b.rating>=4.5?'综合评分高':b.rating>=4?'性价比中等':'价格偏高'}</p></div></div></div></div>
+        <div class="gh glass rounded-xl p-4"><p class="text-xs text-gray-500 uppercase tracking-wider mb-2">最终建议</p><p class="text-sm text-gray-300 leading-relaxed">${a.rating>b.rating?`<strong class="text-white">${a.name}</strong> 综合评分略高（${a.rating} vs ${b.rating}），`:b.rating>a.rating?`<strong class="text-white">${b.name}</strong> 综合评分略高（${b.rating} vs ${a.rating}），`:`两者评分接近（${a.rating} vs ${b.rating}），`}建议根据场景和预算决策。预算允许<strong class="text-white">双持组合</strong>往往最优。</p></div></div>`;
+}
+
+// ===== 垂直场景筛选 =====
+function verticalFilter(scene){
+    // Reset all filters first
+    activeCat='all';activeIdentity='all';activeScene='all';activeFilter='all';activeCompany='all';showFavsOnly=false;query='';
+    // Reset sidebar tag states
+    document.querySelectorAll('#ldCatTags .ld-tag').forEach(b=>b.classList.toggle('active',b.dataset.cat==='all'));
+    document.querySelectorAll('#ldIdentityTags .ld-tag').forEach(b=>b.classList.toggle('active',b.dataset.identity==='all'));
+    document.querySelectorAll('#ldViewTags .ld-tag').forEach(b=>b.classList.toggle('active',b.dataset.filter==='all'));
+    // Each scene maps to specific categories + keywords for real filtering
+    const sc={
+        // === 侧边栏12场景 ===
+        paper:{cats:['文案写作','效率&自动化','AI搜索','数据分析'],kw:['论文','写作','学术','文献','降重','查重','科研','期刊','引用']},
+        check:{cats:['文案写作'],kw:['查重','降重','检测','原创','AIGC','AI检测','抄袭','论文']},
+        ppt:{cats:['效率&自动化','AI设计'],kw:['PPT','演示','幻灯片','课件','演讲','汇报']},
+        lang:{cats:['对话助手','文案写作'],kw:['翻译','语言','单词','英语','日语','韩语','外语','多语言']},
+        code_learn:{cats:['代码辅助','AI Agent'],kw:['编程','代码','学习','教程','入门','GitHub','开源']},
+        exam:{cats:['对话助手','AI搜索','效率&自动化'],kw:['考试','备考','题库','刷题','真题','学习','辅导']},
+        job:{cats:['效率&自动化','文案写作'],kw:['简历','面试','求职','招聘','职业','职场']},
+        reading:{cats:['对话助手','AI搜索','效率&自动化'],kw:['阅读','文献','论文','学术','PDF','笔记','研究']},
+        media:{cats:['视频生成','音频&音乐','图像生成','文案写作'],kw:['视频','音频','配音','剪辑','自媒体','短视频']},
+        ecom:{cats:['视频生成','图像生成','文案写作','AI设计'],kw:['电商','商品','营销','广告','运营','带货','小红书']},
+        startup:{cats:['效率&自动化','AI Agent','AI设计'],kw:['创业','公司','团队','企业','管理','流程','自动化']},
+        fin:{cats:['数据分析','AI搜索','效率&自动化'],kw:['股票','基金','投资','理财','金融','数据']},
+        // === 顶部精选5场景（与12场景共用同一过滤引擎）===
+        office:{cats:['效率&自动化','数据分析','语音识别'],kw:['办公','PPT','效率','自动化','文档','会议','翻译','流程']},
+        create:{cats:['图像生成','视频生成','音频&音乐','文案写作'],kw:['创作','生成','编辑','制作','写作','内容']},
+        code:{cats:['代码辅助','AI API','AI Agent'],kw:['编程','代码','开发','部署','IDE','API','Agent']},
+        learn:{cats:['AI搜索','对话助手','效率&自动化'],kw:['论文','学习','搜题','教育','辅导','阅读','语言','课程']},
+        design:{cats:['AI设计','图像生成'],kw:['设计','UI','原型','品牌','海报','图标','排版']},
+    };
+    const s=sc[scene]||{cats:[],kw:[]};
+    document.getElementById('tools').scrollIntoView({behavior:'smooth'});
+    renderToolSectionsWithScene(s.cats,s.kw);
+}
+// Extended render for scene-based filtering
+function renderToolSectionsWithScene(cats,kws){
+    let filtered=TOOLS.filter(t=>{
+        if(showFavsOnly&&!favs.includes(t.name))return false;
+        // Match by category inclusion
+        if(cats.length>0&&cats.some(c=>t.cat===c))return true;
+        // Match by keyword in name/desc
+        if(kws.some(k=>t.name.toLowerCase().includes(k)||t.desc.toLowerCase().includes(k)))return true;
+        return false;
+    });
+    if(filtered.length===0){toolSections.innerHTML='';noResults.classList.remove('hidden');toolCount.textContent='无匹配结果';resultHint.classList.add('hidden');return;}
+    noResults.classList.add('hidden');
+    toolCount.textContent=filtered.length+' 款';
+    resultHint.classList.add('hidden');
+    // Group by category
+    const grouped={};const orderedCats=[];
+    filtered.forEach(t=>{if(!grouped[t.cat]){grouped[t.cat]=[];orderedCats.push(t.cat);}grouped[t.cat].push(t);});
+    toolSections.innerHTML=orderedCats.map(cat=>`
+        <div class="mb-8"><div class="flex items-center gap-3 mb-3"><h3 class="text-base font-semibold tw">${cat}</h3><span class="text-xs text-gray-600">${grouped[cat].length} 款</span></div>
+        <div class="tool-grid grid gap-4">${grouped[cat].map((t,i)=>{
+            const isF=favs.includes(t.name);
+            const iH=t.domain?`<div class="tool-icon"><img src="https://www.google.com/s2/favicons?domain=${t.domain}&sz=64" alt="${t.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.nextElementSibling.style.display='flex';"></div><div class="tool-icon-fb">${t.name.charAt(0)}</div>`:`<div class="tool-icon-fb" style="display:flex;">${t.name.charAt(0)}</div>`;
+            return `<div class="tool-card glass p-5 cursor-pointer" style="animation-delay:${i*0.04}s" onclick="event.target.closest('.fav-btn')?null:window.open('${t.url}','_blank')"><div class="flex items-center gap-3 mb-3">${iH}<div class="flex-1 min-w-0"><h3 class="text-white font-semibold text-sm truncate">${t.name}</h3><p class="text-gray-500 text-xs">${getCompany(t)}</p></div><button class="fav-btn ${isF?'faved':''} text-base flex-shrink-0" onclick="event.stopPropagation();toggleFav('${t.name}')">${isF?'★':'☆'}</button></div><p class="text-gray-400 text-xs leading-relaxed mb-3 line-clamp-2 min-h-[2.5em]">${t.desc}</p><div class="flex items-center justify-between"><span class="text-xs">${sHTML(t.rating)} <span class="text-gray-500 ml-1">${t.rating}</span></span><span class="text-[11px] text-gray-600 truncate ml-2 max-w-[140px]" title="${t.pricing}">${formatPricing(t.pricing)}</span></div></div>`;}).join('')}</div></div>`).join('');
+    closeSidebar();
+    setTimeout(()=>{activeCat='all';query='';},500);
+}
+
+// ===== 侧边栏开关 =====
+function openSidebar(){
+    document.getElementById('ldPanel').classList.add('open');
+    document.getElementById('ldMask').classList.add('open');
+    document.getElementById('ldTrigger').classList.add('hidden');
+}
+function closeSidebar(){
+    document.getElementById('ldPanel').classList.remove('open');
+    document.getElementById('ldMask').classList.remove('open');
+    document.getElementById('ldTrigger').classList.remove('hidden');
+}
+
+// ===== 重置全部筛选 =====
+function resetAllFilters(){
+    activeCat='all';activeIdentity='all';activeScene='all';activeFilter='all';activeCompany='all';showFavsOnly=false;query='';
+    document.getElementById('ldCompanyFilter').value='all';
+    document.querySelectorAll('#ldCatTags .ld-tag').forEach(b=>b.classList.toggle('active',b.dataset.cat==='all'));
+    document.querySelectorAll('#ldIdentityTags .ld-tag').forEach(b=>b.classList.toggle('active',b.dataset.identity==='all'));
+    document.querySelectorAll('#ldSceneTags .ld-tag').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('#ldViewTags .ld-tag').forEach(b=>b.classList.toggle('active',b.dataset.filter==='all'));
+    document.getElementById('ldFavTab').innerHTML='<i class="fa-solid fa-star"></i> 收藏夹 ('+favs.length+')';
+    document.getElementById('searchInput').value='';
+    renderToolSections();
+    closeSidebar();
+    toast('已重置全部筛选');
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function init(){popA();renderToolSections();renderWorkflows();renderTrending();populateCompanyFilter();}
+init();
+
+// ===== GSAP 入场动画 =====
+if(typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined'){
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray('.scene-card').forEach((el,i)=>{
+        gsap.from(el,{scrollTrigger:{trigger:el,start:'top 90%'},y:30,opacity:0,duration:0.5,delay:i*0.08,ease:'power2.out'});
+    });
+    gsap.utils.toArray('.workflow-grid > *').forEach((el,i)=>{
+        gsap.from(el,{scrollTrigger:{trigger:el,start:'top 90%'},y:20,opacity:0,duration:0.4,delay:i*0.06,ease:'power2.out'});
+    });
+    function animateCards(){
+        gsap.utils.toArray('.tool-card').forEach((el,i)=>{
+            if(getComputedStyle(el).opacity==='0'){
+                gsap.fromTo(el,{opacity:0,y:20},{opacity:1,y:0,duration:0.35,delay:i*0.02,ease:'power2.out'});
+            }
+        });
+    }
+    setTimeout(animateCards,300);
+    const origRender=renderToolSections;
+    renderToolSections=function(){origRender();setTimeout(animateCards,100);};
+}
+</script>
+
+</body>
+</html>
