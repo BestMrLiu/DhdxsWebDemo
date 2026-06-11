@@ -197,6 +197,11 @@
     }
     .tier-unit { font-size: 0.8rem; color: #646973; }
     .tier-original { font-size: 0.8rem; color: #9CA3AF; text-decoration: line-through; margin-top: -4px; }
+    .tier-discount {
+      font-size: 0.78rem; font-weight: 600; color: #059669;
+      background: rgba(5,150,105,0.06); padding: 3px 8px; border-radius: 6px;
+      display: inline-block; margin-top: -2px;
+    }
     .tier-promo {
       font-size: 0.78rem; color: #B600A8; font-weight: 500;
       background: rgba(182,0,168,0.06); padding: 5px 10px; border-radius: 8px;
@@ -537,20 +542,17 @@
             <div class="tier-grid">
               <!-- 极简版 -->
               <div class="tier-card" onclick="openServiceModal('service1')">
-                <div class="tier-badge">
-                  <span class="tier-name">极简版</span>
-                </div>
+                <div class="tier-badge"><span class="tier-name">极简版</span></div>
                 <div class="tier-price-row">
                   <span class="tier-current">¥1,500</span><span class="tier-unit">起</span>
                 </div>
-                <div class="tier-original">原价 ¥2,999</div>
+                <div class="tier-original">市场价 ¥3,000</div>
+                <div class="tier-discount">约市场价 5 折</div>
                 <div class="tier-promo">🎉 前5位 <strong>¥1,000</strong></div>
                 <ul class="tier-features">
                   <li>自适应 PC + 手机端</li>
-                  <li>SEO 基础优化</li>
                   <li>域名绑定与上线部署</li>
                   <li>3 个月售后维护</li>
-                  <li>单页 / 5 页内官网</li>
                 </ul>
                 <span class="tier-cta" onclick="event.stopPropagation(); openServiceModal('service1')">
                   查看详情 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -565,14 +567,13 @@
                 <div class="tier-price-row">
                   <span class="tier-current">¥2,999</span><span class="tier-unit">起</span>
                 </div>
-                <div class="tier-original">原价 ¥5,999</div>
+                <div class="tier-original">市场价 ¥6,000</div>
+                <div class="tier-discount">约市场价 5 折</div>
                 <div class="tier-promo">🎉 前5位 <strong>¥2,500</strong></div>
                 <ul class="tier-features">
                   <li>包含极简版全部内容</li>
-                  <li>简易管理后台（自主修改内容）</li>
-                  <li>多页面结构（5页内）</li>
+                  <li>简易管理后台（自主修改）</li>
                   <li>联系表单 + 地图嵌入</li>
-                  <li>Google Analytics 接入</li>
                 </ul>
                 <span class="tier-cta" onclick="event.stopPropagation(); openServiceModal('service1')">
                   查看详情 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -599,13 +600,11 @@
                 <div class="tier-price-row">
                   <span class="tier-current">¥2,999</span><span class="tier-unit">起</span>
                 </div>
-                <div class="tier-original">原价 ¥5,999</div>
+                <div class="tier-original">市场价 ¥5,999</div>
                 <div class="tier-promo">🎉 前5位 <strong>¥2,000</strong></div>
                 <ul class="tier-features">
                   <li>UI 设计 + 开发一体</li>
                   <li>微信审核上线全流程</li>
-                  <li>预约 / 展示功能定制</li>
-                  <li>图文内容管理</li>
                   <li>3 个月售后维护</li>
                 </ul>
                 <span class="tier-cta" onclick="event.stopPropagation(); openServiceModal('service2')">
@@ -621,14 +620,12 @@
                 <div class="tier-price-row">
                   <span class="tier-current">¥5,999</span><span class="tier-unit">起</span>
                 </div>
-                <div class="tier-original">原价 ¥12,000</div>
+                <div class="tier-original">市场价 ¥12,000</div>
                 <div class="tier-promo">🎉 前5位 <strong>¥4,999</strong></div>
                 <ul class="tier-features">
                   <li>包含展示版全部内容</li>
-                  <li>微信支付接入</li>
-                  <li>会员系统 + 积分体系</li>
+                  <li>微信支付 + 会员系统</li>
                   <li>订单管理后台</li>
-                  <li>数据看板</li>
                 </ul>
                 <span class="tier-cta" onclick="event.stopPropagation(); openServiceModal('service2')">
                   查看详情 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -649,19 +646,17 @@
             <div class="tier-grid">
               <!-- 轻量诊断 -->
               <div class="tier-card" onclick="openServiceModal('service3')">
-                <div class="tier-badge">
-                  <span class="tier-name">轻量诊断</span>
-                </div>
+                <div class="tier-badge"><span class="tier-name">轻量诊断</span></div>
                 <div class="tier-price-row">
                   <span class="tier-current">¥499</span><span class="tier-unit">起</span>
                 </div>
-                <div class="tier-original">原价 ¥999</div>
+                <div class="tier-original">市场价 ¥1,000</div>
+                <div class="tier-discount">约市场价 5 折</div>
                 <div class="tier-promo">🎉 前10位 <strong>¥299</strong></div>
                 <ul class="tier-features">
                   <li>1 小时线上诊断会议</li>
-                  <li>梳理企业现有工作流程</li>
                   <li>推荐 3-5 款适配AI工具</li>
-                  <li>输出一份 PDF 诊断报告</li>
+                  <li>输出 PDF 诊断报告</li>
                 </ul>
                 <span class="tier-cta" onclick="event.stopPropagation(); openServiceModal('service3')">
                   查看详情 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -676,13 +671,12 @@
                 <div class="tier-price-row">
                   <span class="tier-current">¥1,299</span><span class="tier-unit">起</span>
                 </div>
-                <div class="tier-original">原价 ¥2,599</div>
+                <div class="tier-original">市场价 ¥2,600</div>
+                <div class="tier-discount">约市场价 5 折</div>
                 <div class="tier-promo">🎉 前10位 <strong>¥999</strong></div>
                 <ul class="tier-features">
                   <li>包含轻量诊断全部内容</li>
                   <li>AI 工具落地路线图（分3阶段）</li>
-                  <li>重点岗位 AI 提效方案</li>
-                  <li>工具使用培训（2小时）</li>
                   <li>45 天跟进答疑</li>
                 </ul>
                 <span class="tier-cta" onclick="event.stopPropagation(); openServiceModal('service3')">
@@ -704,19 +698,17 @@
             <div class="tier-grid">
               <!-- 单次辅导 -->
               <div class="tier-card" onclick="openServiceModal('service4')">
-                <div class="tier-badge">
-                  <span class="tier-name">单次辅导</span>
-                </div>
+                <div class="tier-badge"><span class="tier-name">单次辅导</span></div>
                 <div class="tier-price-row">
                   <span class="tier-current">¥500</span><span class="tier-unit">起/次</span>
                 </div>
                 <div class="tier-original">市场价 ¥2,000/次</div>
+                <div class="tier-discount">约市场价 2.5 折</div>
                 <div class="tier-promo">🎉 前10位 <strong>¥300</strong></div>
                 <ul class="tier-features">
                   <li>1 对 1 视频指导</li>
                   <li>从原型到部署全流程</li>
-                  <li>代码审查 + 改进建议</li>
-                  <li>课后答疑通道</li>
+                  <li>课后 7 天答疑</li>
                 </ul>
                 <span class="tier-cta" onclick="event.stopPropagation(); openServiceModal('service4')">
                   查看详情 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -732,13 +724,12 @@
                   <span class="tier-current">¥1,500</span><span class="tier-unit">起</span>
                 </div>
                 <div class="tier-original">市场价 ¥5,000</div>
+                <div class="tier-discount">约市场价 3 折</div>
                 <div class="tier-promo">🎉 前5位 <strong>¥1,200</strong></div>
                 <ul class="tier-features">
                   <li>包含单次辅导全部内容</li>
                   <li>完整项目规划 + 架构设计</li>
-                  <li>每周 2 次进度 review</li>
                   <li>部署上线全程指导</li>
-                  <li>结项技术复盘</li>
                 </ul>
                 <span class="tier-cta" onclick="event.stopPropagation(); openServiceModal('service4')">
                   查看详情 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1326,14 +1317,14 @@
             name: '极简版',
             price: '¥1,500 起',
             promo: '前5位 ¥1,000',
+            marketPrice: '市场价 ¥3,000',
+            discount: '约市场价 5 折',
             highlight: false,
             features: [
               '自适应 PC + 手机端',
               'SEO 基础优化',
               '域名绑定与上线部署',
               '3 个月售后维护',
-              '单页 / 5 页内官网',
-              '基础动效 + 品牌配色',
               '7 天内交付',
             ]
           },
@@ -1341,14 +1332,14 @@
             name: '标准版',
             price: '¥2,999 起',
             promo: '前5位 ¥2,500',
+            marketPrice: '市场价 ¥6,000',
+            discount: '约市场价 5 折',
             highlight: true,
             features: [
               '包含极简版全部内容',
               '简易管理后台（自主修改内容）',
               '多页面结构（5 页内）',
               '联系表单 + 地图嵌入',
-              'Google Analytics 接入',
-              '自定义 Favicon + OG 标签',
               '10 天内交付',
             ]
           }
@@ -1364,6 +1355,8 @@
             name: '展示 / 预约版',
             price: '¥2,999 起',
             promo: '前5位 ¥2,000',
+            marketPrice: '市场价 ¥6,000',
+            discount: '约市场价 5 折',
             highlight: false,
             features: [
               'UI 设计 + 开发一体',
@@ -1371,22 +1364,21 @@
               '预约 / 展示功能定制',
               '图文内容管理',
               '3 个月售后维护',
-              '基础数据统计',
             ]
           },
           {
             name: '商用版',
             price: '¥5,999 起',
             promo: '前5位 ¥4,999',
+            marketPrice: '市场价 ¥12,000',
+            discount: '约市场价 5 折',
             highlight: true,
             features: [
               '包含展示版全部内容',
               '微信支付接入',
               '会员系统 + 积分体系',
               '订单管理后台',
-              '数据看板 + 导出',
               '消息模板推送',
-              '15 天内交付',
             ]
           }
         ],
@@ -1401,19 +1393,22 @@
             name: '轻量诊断',
             price: '¥499 起',
             promo: '前10位 ¥299',
+            marketPrice: '市场价 ¥1,000',
+            discount: '约市场价 5 折',
             highlight: false,
             features: [
               '1 小时线上诊断会议',
               '梳理企业现有工作流程',
               '推荐 3-5 款适配 AI 工具',
               '输出一份 PDF 诊断报告',
-              '覆盖市场 / 运营 / 设计等场景',
             ]
           },
           {
             name: '深度规划',
             price: '¥1,299 起',
             promo: '前10位 ¥999',
+            marketPrice: '市场价 ¥2,600',
+            discount: '约市场价 5 折',
             highlight: true,
             features: [
               '包含轻量诊断全部内容',
@@ -1421,7 +1416,6 @@
               '重点岗位 AI 提效方案',
               '工具使用培训（2 小时）',
               '45 天跟进答疑',
-              '常用提示词模板库',
             ]
           }
         ],
@@ -1436,6 +1430,8 @@
             name: '单次辅导',
             price: '¥500 起/次',
             promo: '前10位 ¥300',
+            marketPrice: '市场价 ¥2,000/次',
+            discount: '约市场价 2.5 折',
             highlight: false,
             features: [
               '1 对 1 视频指导（约1.5小时）',
@@ -1448,13 +1444,14 @@
             name: '项目陪伴',
             price: '¥1,500 起',
             promo: '前5位 ¥1,200',
+            marketPrice: '市场价 ¥5,000',
+            discount: '约市场价 3 折',
             highlight: true,
             features: [
               '包含单次辅导全部内容',
               '完整项目规划 + 架构设计',
               '每周 2 次进度 review',
               '部署上线全程指导',
-              '结项技术复盘',
               '简历项目包装建议',
             ]
           }
@@ -1478,6 +1475,8 @@
             <div class="modal-tier ${t.highlight ? 'modal-tier-highlight' : ''}">
               <div class="modal-tier-name">${t.name}</div>
               <div class="modal-tier-price">${t.price}</div>
+              ${t.marketPrice ? `<div style="font-size:0.8rem;color:#9CA3AF;text-decoration:line-through;margin-bottom:2px;">${t.marketPrice}</div>` : ''}
+              ${t.discount ? `<div style="font-size:0.78rem;font-weight:600;color:#059669;margin-bottom:4px;">${t.discount}</div>` : ''}
               ${t.promo ? `<div style="font-size:0.78rem;color:#B600A8;font-weight:500;margin-bottom:4px;">🎉 ${t.promo}</div>` : ''}
               <ul class="modal-tier-features">
                 ${t.features.map(f => `<li>${f}</li>`).join('')}
