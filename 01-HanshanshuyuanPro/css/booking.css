@@ -1,0 +1,410 @@
+/* ============================================
+   寒山书院 · 在线预约系统样式
+   ============================================ */
+
+.booking-section {
+  background: var(--paper-warm);
+  min-height: 100vh;
+  padding: 80px 0 120px;
+}
+
+/* 步骤指示器 */
+.booking-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 64px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.booking-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  position: relative;
+  color: var(--ink-faded);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+}
+
+.booking-step.active { color: var(--ink); }
+.booking-step.done { color: var(--seal); }
+
+.booking-step::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: calc(50% + 18px);
+  right: calc(-50% + 18px);
+  height: 1px;
+  background: var(--line);
+}
+
+.booking-step:last-child::after { display: none; }
+.booking-step.active::after { background: var(--seal); }
+
+.step-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.booking-step.active .step-num {
+  background: var(--seal);
+  color: var(--paper);
+  border-color: var(--seal);
+}
+
+.booking-step.done .step-num {
+  background: var(--seal);
+  color: var(--paper);
+}
+
+/* 面板 */
+.booking-panels {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 64px 48px;
+  min-height: 500px;
+}
+
+.booking-panel { display: none; }
+.booking-panel.active { display: block; animation: fadeIn 0.3s; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.booking-panel-title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-xl);
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 32px;
+  letter-spacing: 0.05em;
+}
+
+/* Step 1: 课程卡片 */
+.booking-courses {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.booking-course { cursor: pointer; }
+.booking-course input { display: none; }
+
+.booking-course-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+  border: 1px solid var(--line);
+  transition: all 0.3s;
+  background: var(--paper-warm);
+}
+
+.booking-course:hover .booking-course-card { border-color: var(--seal); }
+.booking-course input:checked + .booking-course-card {
+  border-color: var(--seal);
+  background: rgba(168, 51, 46, 0.04);
+  box-shadow: 0 4px 12px -4px rgba(168, 51, 46, 0.15);
+}
+
+.booking-course-icon {
+  width: 48px; height: 48px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--seal);
+  flex-shrink: 0;
+}
+
+.booking-course-content h3 {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.booking-course-content p {
+  font-size: 12px;
+  color: var(--ink-faded);
+  margin-bottom: 8px;
+}
+
+.booking-course-price {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--seal);
+  letter-spacing: 0.05em;
+}
+
+/* Step 2: 日历 */
+.booking-calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.booking-calendar-header h3 {
+  font-family: var(--font-serif);
+  font-size: var(--fs-lg);
+  color: var(--ink);
+}
+
+.cal-nav {
+  background: transparent;
+  border: 1px solid var(--line);
+  width: 36px; height: 36px;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--ink-soft);
+  transition: all 0.2s;
+}
+
+.cal-nav:hover { background: var(--paper-warm); border-color: var(--seal); color: var(--seal); }
+
+.cal-weekdays, .cal-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cal-weekdays { margin-bottom: 8px; }
+.cal-weekdays span {
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink-faded);
+  letter-spacing: 0.1em;
+  padding: 8px 0;
+}
+
+.cal-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--ink);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.cal-day:hover:not(.disabled):not(.empty) {
+  background: var(--paper-warm);
+  border-color: var(--line);
+}
+
+.cal-day.disabled, .cal-day.empty, .cal-day.closed {
+  color: rgba(0,0,0,0.25);
+  color: rgba(0,0,0,0.15);
+  cursor: default;
+}
+
+.cal-day.today { color: var(--seal); font-weight: 600; }
+.cal-day.full { color: #A8332E; cursor: not-allowed; text-decoration: line-through; opacity: 0.7; }
+
+.cal-day.selected {
+  background: var(--seal);
+  color: var(--paper);
+  border-color: var(--seal);
+}
+
+.cal-day .status {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8px;
+  color: var(--ink-faded);
+}
+
+.cal-day.selected .status { color: var(--paper); }
+
+/* 时间段 */
+.booking-time-slots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.time-slot {
+  padding: 14px 0;
+  text-align: center;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--ink);
+  transition: all 0.2s;
+}
+
+.time-slot:hover { border-color: var(--seal); color: var(--seal); }
+.time-slot.selected { background: var(--seal); color: var(--paper); border-color: var(--seal); }
+.time-slot.full { color: var(--ink-faded); background: var(--paper-warm); cursor: not-allowed; }
+
+/* Step 3: 表单 */
+.booking-summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  background: var(--paper-warm);
+  border: 1px solid var(--line);
+  margin-bottom: 32px;
+}
+
+.booking-summary .label {
+  font-size: 12px;
+  color: var(--ink-faded);
+  letter-spacing: 0.15em;
+}
+
+.booking-summary .value {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.booking-form { display: flex; flex-direction: column; gap: 20px; }
+
+.booking-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.booking-form label {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 13px;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: 0.1em;
+}
+
+.booking-form input, .booking-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--paper-warm);
+  border: 1px solid var(--line);
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.booking-form input:focus, .booking-form textarea:focus {
+  border-color: var(--seal);
+  background: var(--paper);
+}
+
+.booking-trust {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(168, 51, 46, 0.04);
+  border: 1px solid rgba(168, 51, 46, 0.15);
+  font-size: 12px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.booking-trust svg { color: var(--seal); flex-shrink: 0; }
+
+.booking-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+/* Step 4: 成功页 */
+.booking-success {
+  text-align: center;
+  padding: 32px 0;
+}
+
+.success-mark {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--seal);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 300;
+  margin: 0 auto 32px;
+}
+
+.booking-success h2 {
+  font-family: var(--font-serif);
+  font-size: var(--fs-2xl);
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+
+.booking-success > p {
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+.success-detail {
+  background: var(--paper-warm);
+  border: 1px solid var(--line);
+  padding: 24px 32px;
+  text-align: left;
+  max-width: 480px;
+  margin: 0 auto 32px;
+  font-size: 14px;
+  line-height: 2;
+  color: var(--ink-soft);
+}
+
+.success-detail strong { color: var(--ink); font-weight: 500; }
+
+.success-actions { display: flex; gap: 16px; justify-content: center; }
+
+/* 移动端 */
+@media (max-width: 768px) {
+  .booking-panels { padding: 40px 20px; }
+  .booking-courses { grid-template-columns: 1fr; }
+  .booking-time-slots { grid-template-columns: repeat(2, 1fr); }
+  .booking-form .form-row { grid-template-columns: 1fr; }
+  .booking-steps { font-size: 11px; }
+}

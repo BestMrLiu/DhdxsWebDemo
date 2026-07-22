@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>运营看板 · 寒山书院后台</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23A8332E'/%3E%3Ctext x='50' y='68' font-family='serif' font-size='60' fill='%23F5F1E8' text-anchor='middle' font-weight='bold'%3E寒%3C/text%3E%3C/svg%3E">
+</head>
+<body class="dashboard-body">
+
+  <header class="dashboard-header">
+    <div class="dashboard-header-inner">
+      <div class="dashboard-brand">
+        <div class="seal seal-sm">寒山</div>
+        <div>
+          <div class="dashboard-brand-name">寒山书院</div>
+          <div class="dashboard-brand-en">运营后台 · 演示</div>
+        </div>
+      </div>
+      <div class="dashboard-user">
+        <span class="dashboard-welcome">上午好，陆老师</span>
+        <a href="index.html" class="dashboard-exit">查看网站 →</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard-main">
+    <div class="container">
+      <div class="dashboard-hero">
+        <h1>过去 7 天</h1>
+        <p class="dashboard-hero-sub">您的网站表现</p>
+        <div class="dashboard-hero-period">2026 · 7 · 14 — 7 · 20</div>
+      </div>
+
+      <!-- 关键指标 -->
+      <div class="dashboard-stats">
+        <div class="dashboard-stat">
+          <div class="dashboard-stat-label">访客数</div>
+          <div class="dashboard-stat-num">1,284</div>
+          <div class="dashboard-stat-change up">↑ 23.4%</div>
+          <div class="dashboard-stat-trend">
+            <svg viewBox="0 0 100 30" width="100" height="30">
+              <polyline points="0,20 15,18 30,22 45,15 60,12 75,8 90,10 100,5" fill="none" stroke="#00C853" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+        <div class="dashboard-stat">
+          <div class="dashboard-stat-label">预约提交</div>
+          <div class="dashboard-stat-num">23</div>
+          <div class="dashboard-stat-change up">↑ 12.0%</div>
+          <div class="dashboard-stat-trend">
+            <svg viewBox="0 0 100 30" width="100" height="30">
+              <polyline points="0,18 15,20 30,15 45,17 60,12 75,14 90,8 100,10" fill="none" stroke="#00C853" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+        <div class="dashboard-stat">
+          <div class="dashboard-stat-label">转化率</div>
+          <div class="dashboard-stat-num">1.79<span class="unit">%</span></div>
+          <div class="dashboard-stat-change down">↓ 0.3%</div>
+          <div class="dashboard-stat-trend">
+            <svg viewBox="0 0 100 30" width="100" height="30">
+              <polyline points="0,12 15,15 30,10 45,13 60,18 75,16 90,18 100,17" fill="none" stroke="#FF6B35" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+        <div class="dashboard-stat">
+          <div class="dashboard-stat-label">人均访问页数</div>
+          <div class="dashboard-stat-num">3.4</div>
+          <div class="dashboard-stat-change up">↑ 0.5</div>
+        </div>
+      </div>
+
+      <!-- 详情 -->
+      <div class="dashboard-grid">
+        <!-- 流量来源 -->
+        <div class="dashboard-card">
+          <h3>流量来源</h3>
+          <div class="dashboard-source-list">
+            <div class="dashboard-source-item">
+              <div class="source-label">微信</div>
+              <div class="source-bar"><div class="source-fill" style="width: 56%;"></div></div>
+              <div class="source-num">56%</div>
+            </div>
+            <div class="dashboard-source-item">
+              <div class="source-label">百度搜索</div>
+              <div class="source-bar"><div class="source-fill" style="width: 24%;"></div></div>
+              <div class="source-num">24%</div>
+            </div>
+            <div class="dashboard-source-item">
+              <div class="source-label">直接访问</div>
+              <div class="source-bar"><div class="source-fill" style="width: 12%;"></div></div>
+              <div class="source-num">12%</div>
+            </div>
+            <div class="dashboard-source-item">
+              <div class="source-label">小红书</div>
+              <div class="source-bar"><div class="source-fill" style="width: 5%;"></div></div>
+              <div class="source-num">5%</div>
+            </div>
+            <div class="dashboard-source-item">
+              <div class="source-label">其他</div>
+              <div class="source-bar"><div class="source-fill" style="width: 3%;"></div></div>
+              <div class="source-num">3%</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 热门页面 -->
+        <div class="dashboard-card">
+          <h3>热门页面</h3>
+          <ol class="dashboard-pages">
+            <li>
+              <span class="page-name">/index.html</span>
+              <span class="page-views">823 <em>次</em></span>
+            </li>
+            <li>
+              <span class="page-name">/courses.html</span>
+              <span class="page-views">456 <em>次</em></span>
+            </li>
+            <li>
+              <span class="page-name">/booking.html</span>
+              <span class="page-views">312 <em>次</em></span>
+            </li>
+            <li>
+              <span class="page-name">/faculty.html</span>
+              <span class="page-views">289 <em>次</em></span>
+            </li>
+            <li>
+              <span class="page-name">/blog.html</span>
+              <span class="page-views">178 <em>次</em></span>
+            </li>
+          </ol>
+        </div>
+
+        <!-- 近期预约 -->
+        <div class="dashboard-card">
+          <h3>近期预约 <a href="dashboard.html" class="card-link">查看全部</a></h3>
+          <ul class="dashboard-bookings">
+            <li>
+              <span class="booking-name">王先生</span>
+              <span class="booking-course">执笔启蒙</span>
+              <span class="booking-time">明天 14:00</span>
+            </li>
+            <li>
+              <span class="booking-name">李女士</span>
+              <span class="booking-course">免费体验</span>
+              <span class="booking-time">7/22 10:00</span>
+            </li>
+            <li>
+              <span class="booking-name">陈阿姨</span>
+              <span class="booking-course">精研进阶</span>
+              <span class="booking-time">7/23 15:00</span>
+            </li>
+            <li>
+              <span class="booking-name">张同学</span>
+              <span class="booking-course">名家讲座</span>
+              <span class="booking-time">7/26 14:00</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 待办 -->
+        <div class="dashboard-card dashboard-todo">
+          <h3>待办事项</h3>
+          <ul class="dashboard-todo-list">
+            <li>
+              <input type="checkbox" id="t1">
+              <label for="t1">回复 3 条新的预约咨询</label>
+            </li>
+            <li>
+              <input type="checkbox" id="t2" checked>
+              <label for="t2" style="text-decoration: line-through; opacity: 0.5;">上传本周 12 张学员作品</label>
+            </li>
+            <li>
+              <input type="checkbox" id="t3">
+              <label for="t3">发布 7/26 名家讲座活动详情</label>
+            </li>
+            <li>
+              <input type="checkbox" id="t4">
+              <label for="t4">给 3 位"未到访"学员发送回访信息</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 入口提示 -->
+      <div class="dashboard-notice">
+        <strong>📊 此页面为高级版演示</strong> — 真实运营时，这些数据来自 Cloudflare Analytics（免费、隐私友好）。CMS 编辑入口、实时预约通知、邮件订阅列表都集成在 Cloudflare Workers 中。
+        <a href="index.html" class="notice-link">返回公开网站</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
