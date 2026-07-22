@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>内容管理 — 墨韵学堂后台</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans SC', system-ui, sans-serif; background: #f5f5f5; color: #1a1a1a; }
+    .admin-header { background: #1a1a1a; color: #f8f5e8; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .admin-header h1 { font-size: 18px; font-weight: 500; }
+    .admin-header a { color: #f8f5e8; opacity: 0.6; text-decoration: none; font-size: 13px; }
+    .admin-header a:hover { opacity: 1; }
+    .admin-container { max-width: 960px; margin: 24px auto; padding: 0 24px; }
+    .admin-tabs { display: flex; gap: 4px; margin-bottom: 24px; background: #fff; border-radius: 8px; padding: 4px; border: 1px solid #e0e0e0; }
+    .admin-tab { padding: 10px 20px; border: none; background: none; cursor: pointer; font-size: 14px; border-radius: 6px; transition: all 0.2s; }
+    .admin-tab.active { background: #1a1a1a; color: #f8f5e8; }
+    .admin-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 24px; margin-bottom: 16px; }
+    .admin-card h2 { font-size: 16px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #f0f0f0; }
+    .admin-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .admin-table th { text-align: left; padding: 10px 12px; background: #fafafa; border-bottom: 1px solid #e0e0e0; font-weight: 500; color: #666; }
+    .admin-table td { padding: 10px 12px; border-bottom: 1px solid #f0f0f0; }
+    .admin-table tr:hover { background: #fafafa; }
+    .admin-btn { padding: 6px 14px; border: 1px solid #d0d0d0; border-radius: 4px; background: #fff; cursor: pointer; font-size: 12px; transition: all 0.2s; }
+    .admin-btn:hover { border-color: #999; }
+    .admin-btn-primary { background: #c8441c; color: #fff; border-color: #c8441c; }
+    .admin-btn-primary:hover { background: #a83a18; }
+    .admin-btn-danger { color: #dc3545; border-color: #dc3545; }
+    .admin-btn-danger:hover { background: #dc3545; color: #fff; }
+    .admin-form { display: grid; gap: 12px; }
+    .admin-form label { font-size: 12px; color: #666; display: block; margin-bottom: 4px; }
+    .admin-form input, .admin-form select, .admin-form textarea { width: 100%; padding: 10px 12px; border: 1px solid #d0d0d0; border-radius: 6px; font-size: 14px; font-family: inherit; }
+    .admin-form textarea { min-height: 100px; resize: vertical; }
+    .admin-form input:focus, .admin-form select:focus, .admin-form textarea:focus { outline: none; border-color: #c8441c; box-shadow: 0 0 0 3px rgba(200,68,28,0.1); }
+    .admin-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px; }
+    .admin-badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 10px; }
+    .admin-badge-公告 { background: #e3f2fd; color: #1565c0; }
+    .admin-badge-活动 { background: #e8f5e9; color: #2e7d32; }
+    .admin-badge-荣誉 { background: #fff3e0; color: #e65100; }
+    .admin-badge-教学 { background: #f3e5f5; color: #7b1fa2; }
+    .admin-toast { position: fixed; bottom: 24px; right: 24px; background: #1a1a1a; color: #f8f5e8; padding: 12px 20px; border-radius: 8px; font-size: 13px; z-index: 9999; transform: translateY(80px); opacity: 0; transition: all 0.3s; }
+    .admin-toast.show { transform: translateY(0); opacity: 1; }
+    .admin-panel { display: none; }
+    .admin-panel.active { display: block; }
+    .admin-empty { text-align: center; padding: 40px; color: #999; font-size: 14px; }
+    .admin-json-output { background: #1a1a1a; color: #a8d8a8; padding: 16px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 12px; max-height: 400px; overflow: auto; white-space: pre-wrap; word-break: break-all; display: none; }
+    .admin-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+    .admin-stat { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; text-align: center; }
+    .admin-stat-num { font-size: 28px; font-weight: 600; color: #1a1a1a; }
+    .admin-stat-label { font-size: 12px; color: #999; margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+<div class="admin-header">
+  <h1>墨韵学堂 · 内容管理后台</h1>
+  <a href="index.html">返回前台首页</a>
+</div>
+
+<div class="admin-container">
+  <div class="admin-stats">
+    <div class="admin-stat"><div class="admin-stat-num" id="statNews">0</div><div class="admin-stat-label">新闻动态</div></div>
+    <div class="admin-stat"><div class="admin-stat-num">5</div><div class="admin-stat-label">课程</div></div>
+    <div class="admin-stat"><div class="admin-stat-num">6</div><div class="admin-stat-label">导师</div></div>
+    <div class="admin-stat"><div class="admin-stat-num" id="statBookings">0</div><div class="admin-stat-label">预约记录</div></div>
+  </div>
+
+  <div class="admin-tabs">
+    <button class="admin-tab active" data-panel="newsPanel">新闻管理</button>
+    <button class="admin-tab" data-panel="bookingPanel">预约记录</button>
+    <button class="admin-tab" data-panel="exportPanel">导出数据</button>
+  </div>
+
+  <!-- 新闻管理 -->
+  <div class="admin-panel active" id="newsPanel">
+    <div class="admin-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <h2 style="margin:0;border:none;padding:0">新闻列表</h2>
+        <button class="admin-btn admin-btn-primary" id="addNewsBtn">+ 新增新闻</button>
+      </div>
+      <table class="admin-table">
+        <thead><tr><th>日期</th><th>分类</th><th>标题</th><th>操作</th></tr></thead>
+        <tbody id="newsTableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- 编辑表单 -->
+    <div class="admin-card" id="newsFormCard" style="display:none">
+      <h2 id="newsFormTitle">新增新闻</h2>
+      <div class="admin-form">
+        <div><label>标题</label><input type="text" id="newsTitle" placeholder="新闻标题"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div><label>日期</label><input type="date" id="newsDate"></div>
+          <div><label>分类</label><select id="newsCategory"><option>公告</option><option>活动</option><option>荣誉</option><option>教学</option></select></div>
+        </div>
+        <div><label>摘要（列表页显示）</label><input type="text" id="newsExcerpt" placeholder="一句话摘要"></div>
+        <div><label>正文内容</label><textarea id="newsContent" placeholder="新闻正文，用空行分段"></textarea></div>
+        <div><label>封面图片URL</label><input type="text" id="newsImage" placeholder="https://images.unsplash.com/..."></div>
+        <div class="admin-actions">
+          <button class="admin-btn" id="newsCancelBtn">取消</button>
+          <button class="admin-btn admin-btn-primary" id="newsSaveBtn">保存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 预约记录 -->
+  <div class="admin-panel" id="bookingPanel">
+    <div class="admin-card">
+      <h2>预约记录</h2>
+      <table class="admin-table">
+        <thead><tr><th>时间</th><th>姓名</th><th>电话</th><th>课程</th><th>时段</th></tr></thead>
+        <tbody id="bookingTableBody"></tbody>
+      </table>
+      <div class="admin-empty" id="bookingEmpty">暂无预约记录</div>
+    </div>
+  </div>
+
+  <!-- 导出 -->
+  <div class="admin-panel" id="exportPanel">
+    <div class="admin-card">
+      <h2>导出新闻数据（JSON）</h2>
+      <p style="font-size:13px;color:#666;margin-bottom:16px">复制以下JSON内容，替换项目中的 <code style="background:#f0f0f0;padding:2px 6px;border-radius:3px">data/news.json</code> 文件，然后重新部署即可更新前台新闻。</p>
+      <button class="admin-btn admin-btn-primary" id="exportJsonBtn">生成JSON</button>
+      <pre class="admin-json-output" id="jsonOutput"></pre>
+    </div>
+    <div class="admin-card">
+      <h2>关于数据存储</h2>
+      <p style="font-size:13px;color:#666;line-height:1.8">
+        本后台使用浏览器 <code style="background:#f0f0f0;padding:2px 6px;border-radius:3px">localStorage</code> 存储数据。<br>
+        修改后需要点击"导出JSON"获取数据，然后替换项目文件并重新部署。<br>
+        真实项目中可对接 Notion API / Airtable / Cloudflare Workers KV 实现实时更新。
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="admin-toast" id="toast"></div>
+
+<script>
+(function() {
+  'use strict';
+
+  // ---- Data ----
+  const DEFAULT_NEWS = [
+    { id:1, date:'2026-07-15', category:'公告', title:'墨韵学堂2026年秋季班招生启动', excerpt:'新学期书法、国画、篆刻、古琴、茶道五大课程全面开放报名。', content:'秋季班将于9月1日正式开课，即日起接受预约报名。前20名报名学员享受9折优惠。', image:'https://images.pexels.com/photos/36171312/pexels-photo-36171312.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop&dpr=1' },
+    { id:2, date:'2026-06-20', category:'活动', title:'"笔墨新声"学员年度作品展在浙江美术馆开幕', excerpt:'展出学员作品120余件，涵盖书法、国画、篆刻三大门类。', content:'6月20日，墨韵学堂学员年度作品展在浙江美术馆隆重开幕。', image:'https://images.pexels.com/photos/35346910/pexels-photo-35346910.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop&dpr=1' },
+    { id:3, date:'2026-05-18', category:'活动', title:'端午茶会 · 一期一会', excerpt:'端午节当天举办了一场特别的茶会。', content:'端午节当天，茶道导师谢茶隐带领学员举办了一场别开生面的端午茶会。', image:'https://images.pexels.com/photos/6691991/pexels-photo-6691991.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop&dpr=1' },
+    { id:4, date:'2026-04-22', category:'荣誉', title:'苏听泉老师受邀在国家大剧院演出', excerpt:'古琴导师苏听泉参加"中国古琴艺术展演"。', content:'4月22日，古琴导师苏听泉受邀参加国家大剧院"中国古琴艺术展演"。', image:'https://images.pexels.com/photos/32562614/pexels-photo-32562614.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop&dpr=1' },
+    { id:5, date:'2026-03-15', category:'活动', title:'"方寸之间"篆刻体验工作坊回顾', excerpt:'30位零基础学员完成了人生第一方印章。', content:'3月15日，墨韵学堂举办了篆刻体验工作坊。30位零基础学员完成了人生第一方印章。', image:'https://images.pexels.com/photos/18709055/pexels-photo-18709055.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop&dpr=1' },
+    { id:6, date:'2026-02-28', category:'荣誉', title:'墨韵学子在全国少儿书法大赛中斩获佳绩', excerpt:'12名参赛学员获得金奖3人、银奖5人、铜奖4人。', content:'第十二届全国少儿书法大赛中，墨韵学堂12名参赛学员获得优异成绩。', image:'https://images.pexels.com/photos/6156194/pexels-photo-6156194.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop&dpr=1' }
+  ];
+
+  let news = JSON.parse(localStorage.getItem('moyun_news') || 'null') || DEFAULT_NEWS;
+  let editingId = null;
+
+  // ---- Init ----
+  renderNewsTable();
+  renderBookings();
+  updateStats();
+
+  // ---- Tabs ----
+  document.querySelectorAll('.admin-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.getAttribute('data-panel')).classList.add('active');
+    });
+  });
+
+  // ---- News Table ----
+  function renderNewsTable() {
+    const tbody = document.getElementById('newsTableBody');
+    tbody.innerHTML = news.map(n => `<tr>
+      <td>${n.date}</td>
+      <td><span class="admin-badge admin-badge-${n.category}">${n.category}</span></td>
+      <td style="max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${n.title}</td>
+      <td><button class="admin-btn" onclick="editNews(${n.id})">编辑</button> <button class="admin-btn admin-btn-danger" onclick="deleteNews(${n.id})">删除</button></td>
+    </tr>`).join('');
+  }
+
+  // ---- Add / Edit ----
+  document.getElementById('addNewsBtn').addEventListener('click', () => {
+    editingId = null;
+    document.getElementById('newsFormTitle').textContent = '新增新闻';
+    document.getElementById('newsTitle').value = '';
+    document.getElementById('newsDate').value = new Date().toISOString().split('T')[0];
+    document.getElementById('newsCategory').value = '公告';
+    document.getElementById('newsExcerpt').value = '';
+    document.getElementById('newsContent').value = '';
+    document.getElementById('newsImage').value = '';
+    document.getElementById('newsFormCard').style.display = '';
+    document.getElementById('newsTitle').focus();
+  });
+
+  window.editNews = function(id) {
+    const n = news.find(x => x.id === id);
+    if (!n) return;
+    editingId = id;
+    document.getElementById('newsFormTitle').textContent = '编辑新闻';
+    document.getElementById('newsTitle').value = n.title;
+    document.getElementById('newsDate').value = n.date;
+    document.getElementById('newsCategory').value = n.category;
+    document.getElementById('newsExcerpt').value = n.excerpt;
+    document.getElementById('newsContent').value = n.content;
+    document.getElementById('newsImage').value = n.image;
+    document.getElementById('newsFormCard').style.display = '';
+    document.getElementById('newsTitle').focus();
+  };
+
+  window.deleteNews = function(id) {
+    if (!confirm('确定删除这条新闻？')) return;
+    news = news.filter(n => n.id !== id);
+    save();
+    renderNewsTable();
+    updateStats();
+    toast('已删除');
+  };
+
+  document.getElementById('newsCancelBtn').addEventListener('click', () => {
+    document.getElementById('newsFormCard').style.display = 'none';
+  });
+
+  document.getElementById('newsSaveBtn').addEventListener('click', () => {
+    const title = document.getElementById('newsTitle').value.trim();
+    if (!title) { alert('请填写标题'); return; }
+    const item = {
+      id: editingId || Date.now(),
+      date: document.getElementById('newsDate').value,
+      category: document.getElementById('newsCategory').value,
+      title,
+      excerpt: document.getElementById('newsExcerpt').value.trim(),
+      content: document.getElementById('newsContent').value.trim(),
+      image: document.getElementById('newsImage').value.trim() || 'https://images.pexels.com/photos/36171312/pexels-photo-36171312.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop&dpr=1'
+    };
+    if (editingId) { const idx = news.findIndex(n => n.id === editingId); if (idx >= 0) news[idx] = item; }
+    else { news.unshift(item); }
+    save();
+    renderNewsTable();
+    updateStats();
+    document.getElementById('newsFormCard').style.display = 'none';
+    toast(editingId ? '已更新' : '已添加');
+  });
+
+  // ---- Bookings ----
+  function renderBookings() {
+    const bookings = JSON.parse(localStorage.getItem('moyun_bookings') || '[]');
+    const tbody = document.getElementById('bookingTableBody');
+    const empty = document.getElementById('bookingEmpty');
+    if (!bookings.length) { tbody.innerHTML = ''; empty.style.display = ''; return; }
+    empty.style.display = 'none';
+    tbody.innerHTML = bookings.reverse().map(b => `<tr>
+      <td>${new Date(b.timestamp).toLocaleString('zh-CN')}</td>
+      <td>${b.name || '-'}</td>
+      <td>${b.phone || '-'}</td>
+      <td>${b.course || '-'}</td>
+      <td>${b.slot || '-'}</td>
+    </tr>`).join('');
+    document.getElementById('statBookings').textContent = bookings.length;
+  }
+
+  // ---- Export ----
+  document.getElementById('exportJsonBtn').addEventListener('click', () => {
+    const output = document.getElementById('jsonOutput');
+    output.textContent = JSON.stringify(news, null, 2);
+    output.style.display = output.style.display === 'none' || !output.style.display ? 'block' : 'none';
+  });
+
+  // ---- Helpers ----
+  function save() { localStorage.setItem('moyun_news', JSON.stringify(news)); }
+  function updateStats() { document.getElementById('statNews').textContent = news.length; }
+  function toast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg; t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+  }
+})();
+</script>
+</body>
+</html>

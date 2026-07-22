@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>墨韵学堂 — 当代东方美学研习 | Moyun Academy</title>
+  <meta name="description" content="墨韵学堂致力于传承与创新当代书法、国画、篆刻、古琴、茶道艺术。面向8-50岁文化爱好者，小班精研，名师亲授。">
+  <meta name="keywords" content="书法培训,国画班,篆刻,古琴,茶道,少儿书法,成人书法,墨韵学堂">
+  <link rel="stylesheet" href="css/main.css">
+  <meta property="og:title" content="墨韵学堂 · 当代东方美学研习">
+  <meta property="og:description" content="书法·国画·篆刻·古琴·茶道。面向8-50岁文化爱好者。">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23C8441C'/%3E%3Ctext x='50' y='70' font-family='serif' font-size='58' fill='%23F8F5E8' text-anchor='middle' font-weight='bold'%3E墨%3C/text%3E%3C/svg%3E">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <!-- Preload critical font -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai:wght@300;400;700&display=swap">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "墨韵学堂",
+    "alternateName": "Moyun Academy",
+    "description": "书法·国画·篆刻·古琴·茶道培训，面向8-50岁文化爱好者",
+    "url": "https://moyun.pages.dev",
+    "telephone": "0571-8888-6688",
+    "email": "hello@moyun.academy",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "龙井路168号",
+      "addressLocality": "杭州市",
+      "addressRegion": "浙江省",
+      "postalCode": "310000",
+      "addressCountry": "CN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 30.2590,
+      "longitude": 120.1485
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "21:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday","Sunday"],
+        "opens": "09:00",
+        "closes": "21:00"
+      }
+    ],
+    "priceRange": "$$",
+    "image": "https://images.pexels.com/photos/36171312/pexels-photo-36171312.jpeg?auto=compress&cs=tinysrgb&w=1200&fit=crop&dpr=1",
+    "sameAs": []
+  }
+  </script>
+</head>
+<body>
+  <a href="#philosophy" class="skip-nav">跳过导航</a>
+
+  <!-- ============ 导航栏 ============ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-seal">墨</div>
+        <div class="nav-brand-text">
+          <span class="nav-brand-cn">墨韵学堂</span>
+          <span class="nav-brand-en">Moyun Academy</span>
+        </div>
+      </a>
+      <div class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link active">首页</a>
+        <a href="courses.html" class="nav-link">课程</a>
+        <a href="faculty.html" class="nav-link">师资</a>
+        <a href="gallery.html" class="nav-link">作品</a>
+        <a href="news.html" class="nav-link">动态</a>
+        <a href="contact.html" class="nav-link">联系</a>
+        <a href="contact.html" class="nav-cta">
+          预约体验
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============ Hero ============ -->
+  <section class="hero">
+    <canvas class="hero-canvas" id="inkCanvas"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span class="hero-tag-line"></span>
+          <span>EST. 2018 · 杭州西湖</span>
+        </div>
+        <h1 class="hero-title">
+          <span>墨韵</span><br>
+          <span class="hero-title-accent">传承</span><span style="font-size:0.5em;vertical-align:middle;margin-left:8px;font-family:var(--font-en);font-style:italic;color:var(--text-faded)">当代东方美学</span>
+        </h1>
+        <p class="hero-subtitle">
+          A living tradition of brush, ink, and spirit.
+        </p>
+        <p class="hero-desc">
+          八年深耕书法、国画、篆刻、古琴、茶道五大艺道。<br>
+          我们不教速成，只陪每一位学员在日课中，找到属于自己的笔性与心性。
+        </p>
+        <div class="hero-actions">
+          <a href="courses.html" class="btn btn-vermilion btn-lg">
+            了解课程体系
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="contact.html" class="btn btn-outline btn-lg">预约免费体验课</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>SCROLL</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ============ 品牌理念 ============ -->
+  <section class="section" id="philosophy">
+    <div class="container-narrow" data-aos="fade-up">
+      <div class="section-head">
+        <div class="section-eyebrow">— PHILOSOPHY —</div>
+        <h2 class="section-h2">一笔一画，皆是修行</h2>
+        <div class="divider-ink"></div>
+      </div>
+      <p style="font-size:var(--fs-lg);color:var(--text-soft);line-height:2.2;text-align:center;max-width:680px;margin:0 auto var(--sp-xl)">
+        墨韵学堂创立于2018年，坐落于杭州西湖之畔。我们相信，传统艺术不是博物馆里的陈列，而是流淌在日常生活中的活水。书法养心，国画养眼，篆刻养性，古琴养神，茶道养气——五艺相通，归于一心。
+      </p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:720px;margin:0 auto">
+        <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+          <div style="font-family:var(--font-en);font-size:36px;font-weight:600;color:var(--ink);margin-bottom:4px">8</div>
+          <div style="font-size:var(--fs-xs);color:var(--text-faded);letter-spacing:0.05em">年深耕</div>
+        </div>
+        <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+          <div style="font-family:var(--font-en);font-size:36px;font-weight:600;color:var(--ink);margin-bottom:4px">2000+</div>
+          <div style="font-size:var(--fs-xs);color:var(--text-faded);letter-spacing:0.05em">学员</div>
+        </div>
+        <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+          <div style="font-family:var(--font-en);font-size:36px;font-weight:600;color:var(--ink);margin-bottom:4px">5</div>
+          <div style="font-size:var(--fs-xs);color:var(--text-faded);letter-spacing:0.05em">大艺道</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 双路径选择 ============ -->
+  <section class="dual-path" id="paths">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <div class="section-eyebrow">— CHOOSE YOUR PATH —</div>
+        <h2 class="section-h2">两条路径，一种热爱</h2>
+        <p class="section-desc">无论年龄，无论基础，墨韵为每一位热爱传统文化的你，铺就一条属于自己的研习之路。</p>
+      </div>
+      <div class="path-grid">
+        <div class="path-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="path-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <h3 class="path-title">少儿国学</h3>
+          <div class="path-subtitle">YOUTH PROGRAM · 8-14 岁</div>
+          <p class="path-desc">
+            以书法为入口，培养专注力与审美力。小班制教学，寓教于乐，在笔墨间种下传统文化的种子。
+          </p>
+          <div class="path-tags">
+            <span class="path-tag">硬笔书法</span>
+            <span class="path-tag">毛笔入门</span>
+            <span class="path-tag">国画启蒙</span>
+            <span class="path-tag">考级辅导</span>
+          </div>
+          <div style="margin-top:var(--sp-lg)">
+            <a href="courses.html#youth" class="btn btn-outline btn-sm">
+              查看少儿课程
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="path-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="path-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3 class="path-title">成人雅修</h3>
+          <div class="path-subtitle">ADULT PROGRAM · 25-50 岁</div>
+          <p class="path-desc">
+            为忙碌的都市人辟一方静室。书法修心、国画怡情、古琴养性、茶道悟禅——在传统中找到当代生活的平衡。
+          </p>
+          <div class="path-tags">
+            <span class="path-tag">书法进阶</span>
+            <span class="path-tag">水墨山水</span>
+            <span class="path-tag">篆刻创作</span>
+            <span class="path-tag">古琴雅集</span>
+          </div>
+          <div style="margin-top:var(--sp-lg)">
+            <a href="courses.html#adult" class="btn btn-outline btn-sm">
+              查看成人课程
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 五大课程 ============ -->
+  <section class="section" id="courses">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <div class="section-eyebrow">— FIVE ARTS —</div>
+        <h2 class="section-h2">五艺之道</h2>
+        <p class="section-desc">书法·国画·篆刻·古琴·茶道，每一门都是通往东方美学的门径。</p>
+      </div>
+      <div class="course-grid">
+        <div class="course-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="course-card-img">
+            <img src="https://images.pexels.com/photos/36171312/pexels-photo-36171312.jpeg?auto=compress&cs=tinysrgb&w=400&h=533&fit=crop&dpr=1" alt="书法研习" loading="lazy">
+          </div>
+          <div class="course-card-body">
+            <h3 class="course-card-name">书法</h3>
+            <div class="course-card-en">Calligraphy</div>
+            <p class="course-card-desc">楷行草隶篆五体研习，从笔法到章法，从临帖到创作。</p>
+            <div class="course-card-meta">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>每期 24 课时</span>
+            </div>
+          </div>
+        </div>
+        <div class="course-card" data-aos="fade-up" data-aos-delay="80">
+          <div class="course-card-img">
+            <img src="https://images.pexels.com/photos/35346910/pexels-photo-35346910.jpeg?auto=compress&cs=tinysrgb&w=400&h=533&fit=crop&dpr=1" alt="国画创作" loading="lazy">
+          </div>
+          <div class="course-card-body">
+            <h3 class="course-card-name">国画</h3>
+            <div class="course-card-en">Chinese Painting</div>
+            <p class="course-card-desc">工笔花鸟、写意山水、没骨花卉，水墨间见天地。</p>
+            <div class="course-card-meta">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>每期 24 课时</span>
+            </div>
+          </div>
+        </div>
+        <div class="course-card" data-aos="fade-up" data-aos-delay="160">
+          <div class="course-card-img">
+            <img src="https://images.pexels.com/photos/6213050/pexels-photo-6213050.jpeg?auto=compress&cs=tinysrgb&w=400&h=533&fit=crop&dpr=1" alt="篆刻艺术" loading="lazy">
+          </div>
+          <div class="course-card-body">
+            <h3 class="course-card-name">篆刻</h3>
+            <div class="course-card-en">Seal Carving</div>
+            <p class="course-card-desc">方寸之间，刀石相搏。从秦汉印风到当代创作。</p>
+            <div class="course-card-meta">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>每期 16 课时</span>
+            </div>
+          </div>
+        </div>
+        <div class="course-card" data-aos="fade-up" data-aos-delay="240">
+          <div class="course-card-img">
+            <img src="https://images.pexels.com/photos/32562614/pexels-photo-32562614.jpeg?auto=compress&cs=tinysrgb&w=400&h=533&fit=crop&dpr=1" alt="古琴雅韵" loading="lazy">
+          </div>
+          <div class="course-card-body">
+            <h3 class="course-card-name">古琴</h3>
+            <div class="course-card-en">Guqin</div>
+            <p class="course-card-desc">七弦之上，山水在耳。从指法到琴曲，修身养性。</p>
+            <div class="course-card-meta">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>每期 20 课时</span>
+            </div>
+          </div>
+        </div>
+        <div class="course-card" data-aos="fade-up" data-aos-delay="320">
+          <div class="course-card-img">
+            <img src="https://images.pexels.com/photos/6691991/pexels-photo-6691991.jpeg?auto=compress&cs=tinysrgb&w=400&h=533&fit=crop&dpr=1" alt="茶道品茗" loading="lazy">
+          </div>
+          <div class="course-card-body">
+            <h3 class="course-card-name">茶道</h3>
+            <div class="course-card-en">Tea Ceremony</div>
+            <p class="course-card-desc">一期一会，一盏清茶。从识茶到泡茶，悟禅于杯中。</p>
+            <div class="course-card-meta">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>每期 12 课时</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top:var(--sp-xl)" data-aos="fade-up">
+        <a href="courses.html" class="btn btn-outline">
+          查看全部课程详情
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 师资亮点 ============ -->
+  <section class="section section-alt" id="faculty">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <div class="section-eyebrow">— FACULTY —</div>
+        <h2 class="section-h2">名师亲授</h2>
+        <p class="section-desc">每一位导师，都是各自领域深耕二十年以上的实践者。</p>
+      </div>
+      <div class="swiper facultySwiper" data-aos="fade-up">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="faculty-card">
+              <div class="faculty-avatar">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="陈墨之" loading="lazy">
+              </div>
+              <h3 class="faculty-name">陈墨之</h3>
+              <p class="faculty-title">书法导师 · 中国书协会员</p>
+              <p class="faculty-desc">中国美术学院书法篆刻硕士，师从王冬龄教授。三十年临池不辍，擅长行草。</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="faculty-card">
+              <div class="faculty-avatar">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face" alt="林清韵" loading="lazy">
+              </div>
+              <h3 class="faculty-name">林清韵</h3>
+              <p class="faculty-title">国画导师 · 浙江画院特聘画师</p>
+              <p class="faculty-desc">中央美院国画系毕业，专攻工笔花鸟。作品多次入选全国美展。</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="faculty-card">
+              <div class="faculty-avatar">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face" alt="赵石庵" loading="lazy">
+              </div>
+              <h3 class="faculty-name">赵石庵</h3>
+              <p class="faculty-title">篆刻导师 · 西泠印社社员</p>
+              <p class="faculty-desc">自幼习印，三十余年刀耕不辍。秦汉印风为基，参以明清流派，自成一格。</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="faculty-card">
+              <div class="faculty-avatar">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face" alt="苏听泉" loading="lazy">
+              </div>
+              <h3 class="faculty-name">苏听泉</h3>
+              <p class="faculty-title">古琴导师 · 浙江古琴理事</p>
+              <p class="faculty-desc">虞山派传人，师从龚一先生。操缦二十余年，致力于古琴艺术的当代传承。</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="faculty-card">
+              <div class="faculty-avatar">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face" alt="谢茶隐" loading="lazy">
+              </div>
+              <h3 class="faculty-name">谢茶隐</h3>
+              <p class="faculty-title">茶道导师 · 国家级茶艺技师</p>
+              <p class="faculty-desc">习茶二十年，遍访六大茶山。将禅修融入茶道，创立"静泡法"教学体系。</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+      <div class="text-center" style="margin-top:var(--sp-xl)" data-aos="fade-up">
+        <a href="faculty.html" class="btn btn-outline">
+          了解全部师资
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 数据统计 ============ -->
+  <section class="section" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="0">
+          <div class="stat-num"><span class="counter" data-target="2000">0</span><span class="stat-suffix">+</span></div>
+          <div class="stat-label">累计学员</div>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-num"><span class="counter" data-target="15">0</span><span class="stat-suffix">位</span></div>
+          <div class="stat-label">专业导师</div>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat-num"><span class="counter" data-target="98">0</span><span class="stat-suffix">%</span></div>
+          <div class="stat-label">学员续课率</div>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="stat-num"><span class="counter" data-target="8">0</span><span class="stat-suffix">年</span></div>
+          <div class="stat-label">深耕传承</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 学员作品精选 ============ -->
+  <section class="section section-alt" id="gallery-preview">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <div class="section-eyebrow">— GALLERY —</div>
+        <h2 class="section-h2">学员作品</h2>
+        <p class="section-desc">每一幅作品，都是一段与笔墨相伴的时光。</p>
+      </div>
+      <div class="gallery-preview-grid" data-aos="fade-up">
+        <div class="gallery-preview-item">
+          <img src="https://images.pexels.com/photos/36171312/pexels-photo-36171312.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop&dpr=1" alt="书法作品" loading="lazy">
+          <div class="gallery-preview-overlay">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+        </div>
+        <div class="gallery-preview-item">
+          <img src="https://images.pexels.com/photos/35346910/pexels-photo-35346910.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop&dpr=1" alt="国画作品" loading="lazy">
+          <div class="gallery-preview-overlay">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+        </div>
+        <div class="gallery-preview-item">
+          <img src="https://images.pexels.com/photos/18709055/pexels-photo-18709055.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop&dpr=1" alt="篆刻作品" loading="lazy">
+          <div class="gallery-preview-overlay">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+        </div>
+        <div class="gallery-preview-item">
+          <img src="https://images.pexels.com/photos/6156194/pexels-photo-6156194.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop&dpr=1" alt="水墨山水" loading="lazy">
+          <div class="gallery-preview-overlay">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top:var(--sp-xl)" data-aos="fade-up">
+        <a href="gallery.html" class="btn btn-outline">
+          浏览全部作品
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 学员评价 ============ -->
+  <section class="section" id="testimonials">
+    <div class="container-narrow">
+      <div class="section-head" data-aos="fade-up">
+        <div class="section-eyebrow">— TESTIMONIALS —</div>
+        <h2 class="section-h2">学员心声</h2>
+      </div>
+      <div class="swiper testimonialSwiper" data-aos="fade-up">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div style="text-align:center;padding:0 24px">
+              <p style="font-size:var(--fs-xl);font-family:var(--font-brush);line-height:2;color:var(--text-soft);margin-bottom:var(--sp-lg)">
+                "在墨韵学书法两年了，从一开始的浮躁到现在能静下心来写一个小时。陈老师说，书法不是写好字，是写好人。这句话我一直记着。"
+              </p>
+              <div style="font-weight:500;color:var(--text)">张思远</div>
+              <div style="font-size:var(--fs-xs);color:var(--text-faded)">成人书法班 · 学习 2 年</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div style="text-align:center;padding:0 24px">
+              <p style="font-size:var(--fs-xl);font-family:var(--font-brush);line-height:2;color:var(--text-soft);margin-bottom:var(--sp-lg)">
+                "女儿8岁开始在这里学硬笔，现在写作业的字比我还好。最重要的是，她变得比以前专注了很多。感谢墨韵的老师们。"
+              </p>
+              <div style="font-weight:500;color:var(--text)">李婉清</div>
+              <div style="font-size:var(--fs-xs);color:var(--text-faded)">少儿硬笔班家长</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div style="text-align:center;padding:0 24px">
+              <p style="font-size:var(--fs-xl);font-family:var(--font-brush);line-height:2;color:var(--text-soft);margin-bottom:var(--sp-lg)">
+                "每周六下午来墨韵弹琴，是我一周最期待的时光。苏老师不只教指法，更教你怎么听琴、怎么听自己。"
+              </p>
+              <div style="font-weight:500;color:var(--text)">王明德</div>
+              <div style="font-size:var(--fs-xs);color:var(--text-faded)">古琴班 · 学习 1 年</div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 联系预约 ============ -->
+  <section class="section section-alt" id="contact">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <div class="section-eyebrow">— CONTACT —</div>
+        <h2 class="section-h2">预约体验</h2>
+        <p class="section-desc">首次体验课免费。填写信息，我们会在24小时内与您联系。</p>
+      </div>
+      <div class="contact-grid" data-aos="fade-up">
+        <div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">学堂地址</div>
+              <div class="contact-info-value">杭州市西湖区龙井路 168 号 · 墨韵学堂</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">咨询电话</div>
+              <div class="contact-info-value">0571-8888-6688</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">开放时间</div>
+              <div class="contact-info-value">周二至周日 9:00 - 21:00（周一休息）</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">电子邮箱</div>
+              <div class="contact-info-value">hello@moyun.academy</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <form id="contactForm" onsubmit="return false">
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" class="form-input" placeholder="您的姓名" required>
+              </div>
+              <div class="form-group">
+                <input type="tel" class="form-input" placeholder="手机号码" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <select class="form-select">
+                  <option value="">感兴趣的课程</option>
+                  <option>书法</option>
+                  <option>国画</option>
+                  <option>篆刻</option>
+                  <option>古琴</option>
+                  <option>茶道</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select class="form-select">
+                  <option value="">年龄段</option>
+                  <option>8-14 岁（少儿）</option>
+                  <option>25-50 岁（成人）</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-textarea" placeholder="您想了解的内容（选填）"></textarea>
+            </div>
+            <button type="submit" class="btn btn-vermilion" style="width:100%;justify-content:center">
+              提交预约
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" id="faq">
+    <div class="container-narrow">
+      <div class="section-head" data-aos="fade-up">
+        <div class="section-eyebrow">— FAQ —</div>
+        <h2 class="section-h2">常见问题</h2>
+      </div>
+      <div class="faq-list" data-aos="fade-up">
+        <details class="faq-item">
+          <summary class="faq-question">完全没有基础，可以学吗？</summary>
+          <p class="faq-answer">当然可以。我们的课程从零基础开始设置，每个班型都有明确的入门阶段。老师会根据每位学员的进度调整教学节奏，不用担心跟不上。</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">小孩子几岁可以开始学书法？</summary>
+          <p class="faq-answer">建议8岁以上。8岁的孩子手部肌肉发育基本成熟，能够较好地控制笔画。我们少儿班采用小班制（6人以内），寓教于乐，不会给孩子太大压力。</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">课程费用怎么算？</summary>
+          <p class="faq-answer">不同课程价格不同。书法/国画每期24课时，约3600-4800元；篆刻16课时约3200元；古琴20课时约5000元；茶道12课时约2400元。首次体验课免费。</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">上课时间怎么安排？</summary>
+          <p class="faq-answer">少儿班：周六/周日 9:00-11:00 或 14:00-16:00。成人班：工作日晚上 19:00-21:00，或周末下午。古琴和茶道有专门的雅集时段，具体可咨询前台。</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">可以退课吗？</summary>
+          <p class="faq-answer">开课前可全额退款。开课后未消耗的课时按比例退款，无手续费。我们对教学质量有信心，也尊重每位学员的选择。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">墨韵学堂</div>
+          <p class="footer-brand-desc">
+            杭州西湖之畔，八年深耕书法、国画、篆刻、古琴、茶道五大艺道。传承经典，培育心性。
+          </p>
+          <div style="display:flex;gap:12px;margin-top:20px">
+            <a href="#" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;transition:all 0.3s" aria-label="微信">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="rgba(255,255,255,0.6)"><path d="M8.5 11a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-2.5 8c4.14 0 7.5-2.91 7.5-6.5S15.14 6 11 6 3.5 8.91 3.5 12.5c0 1.94 1.12 3.67 2.86 4.84L5.5 19.5l2.5-1.25c.8.26 1.63.4 2.5.4z"/></svg>
+            </a>
+            <a href="#" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;transition:all 0.3s" aria-label="小红书">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="rgba(255,255,255,0.6)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2v-6h2v6zm-2-8c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>NAVIGATE</h4>
+          <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="courses.html">课程体系</a></li>
+            <li><a href="faculty.html">师资团队</a></li>
+            <li><a href="gallery.html">学员作品</a></li>
+            <li><a href="news.html">学堂动态</a></li>
+            <li><a href="contact.html">联系预约</a></li>
+            <li><a href="admin.html" style="color:var(--gold)">管理后台</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>COURSES</h4>
+          <ul>
+            <li><a href="courses.html#shufa">书法研习</a></li>
+            <li><a href="courses.html#guohua">国画创作</a></li>
+            <li><a href="courses.html#zhuanke">篆刻艺术</a></li>
+            <li><a href="courses.html#guqin">古琴雅韵</a></li>
+            <li><a href="courses.html#chadao">茶道品茗</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>VISIT</h4>
+          <ul>
+            <li>杭州·西湖区龙井路168号</li>
+            <li>0571-8888-6688</li>
+            <li>hello@moyun.academy</li>
+            <li>周二至周日 9:00-21:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-copy">&copy; 2026 墨韵学堂</div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span class="footer-bottom-brand">代号大学生</span>
+          <span style="opacity:0.4">·</span>
+          <span>本站所有内容均为虚构</span>
+          <span style="opacity:0.4">·</span>
+          <span>仅供案例参考</span>
+        </div>
+        <div style="font-family:var(--font-brush);color:rgba(255,255,255,0.4)">一笔一画，皆是修行</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ Scripts ============ -->
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Three.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <!-- Swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script src="js/three-ink.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
